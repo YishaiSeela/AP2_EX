@@ -8,13 +8,16 @@ namespace SearchAlgorithmsLib
 {
     class DFS : Searcher
     {
+        Solution solution;
+
         public override Solution search(ISearchable searchable)
         {
             Stack<State> stack = new Stack<State>();
             State start = (searchable.getInitialState());
             if (start == searchable.getGoalState())
             {
-                return;//.....
+                solution.addToSolution(start);
+                return solution;
             }
             stack.Push(start);
             while (stack.Count() != 0)
@@ -28,12 +31,17 @@ namespace SearchAlgorithmsLib
                     {
                         if (s == searchable.getGoalState())
                         {
-                            return stack.p;//....
+                            foreach (State state in stack)
+                            {
+                                solution.addToSolution(state);
+                            }
+                            return solution;
                         }
                         stack.Push(s);
                     }
                 }
             }
+            return solution;
         }
     }
 }

@@ -8,5 +8,12 @@ namespace SearchAlgorithmsLib
 {
     class Solution
     {
+        List<State> solution;
+
+        public void addToSolution(State state)
+        {
+            solution.Add(state);
+        }
+
     }
 }

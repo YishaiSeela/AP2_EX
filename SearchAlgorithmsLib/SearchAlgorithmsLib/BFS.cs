@@ -18,7 +18,7 @@ namespace SearchAlgorithmsLib
             {
                 State n = popOpenList(); // inherited from Searcher, removes the best state
                 closed.Add(n);
-                if (n.Equals(searchable.getIGoallState()))
+                if (n.Equals(searchable.getGoalState()))
                     return backTrace(closed); // private method, back traces through the parents
                                         // calling the delegated method, returns a list of states with n as a parent
                 List<State> succerssors = searchable.getAllPossibleStates(n);
@@ -48,14 +48,15 @@ namespace SearchAlgorithmsLib
             }
         }
 
-        private Solution backTrace(HashSet<State> closed)
-        {
-            foreach (State s in closed)
-            {
-                Priority_Queue{
-                }
-            }
+        //private Solution backTrace(HashSet<State> closed)
+        //{
+            //foreach (State s in closed)
+            //{
+                //Priority_Queue;
+                //{
+               // }
+            //}
 
-        }
+        //}
     }
 }
