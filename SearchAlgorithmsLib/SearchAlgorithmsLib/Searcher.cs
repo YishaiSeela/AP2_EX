@@ -15,6 +15,11 @@ namespace SearchAlgorithmsLib
             openList = new MyPriorityQueue<State>();
             evaluatedNodes = 0;
         }
+        protected void addToOpenList(State s)
+        {
+            openList.add(s);
+        }
+
         protected State popOpenList()
         {
             evaluatedNodes++;
