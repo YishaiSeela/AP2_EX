@@ -6,14 +6,14 @@ using System.Threading.Tasks;
 
 namespace SearchAlgorithmsLib
 {
-    class DFS : Searcher
+    class DFS <T>: Searcher<T>
     {
-        Solution solution;
+        Solution<T> solution;
 
-        public override Solution search(ISearchable searchable)
+        public override Solution<T> search(ISearchable<T> searchable)
         {
-            Stack<State> stack = new Stack<State>();
-            State start = (searchable.getInitialState());
+            Stack<State<T>> stack = new Stack<State<T>>();
+            State<T> start = (searchable.getInitialState());
             if (start == searchable.getGoalState())
             {
                 solution.addToSolution(start);
@@ -22,16 +22,16 @@ namespace SearchAlgorithmsLib
             stack.Push(start);
             while (stack.Count() != 0)
             {
-                State v = stack.Pop();
+                State<T> v = stack.Pop();
                 if (v.getIsVisited() == false)
                 {
                     v.setIsVisited(true);
-                    List<State> succerssors = searchable.getAllPossibleStates(v);
-                    foreach (State s in succerssors)
+                    List<State<T>> succerssors = searchable.getAllPossibleStates(v);
+                    foreach (State<T> s in succerssors)
                     {
                         if (s == searchable.getGoalState())
                         {
-                            foreach (State state in stack)
+                            foreach (State<T> state in stack)
                             {
                                 solution.addToSolution(state);
                             }

@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace SearchAlgorithmsLib
 {
-    class Solution
+    class Solution<T>
     {
-        List<State> solution;
+        List<State<T>> solution;
 
-        public void addToSolution(State state)
+        public void addToSolution(State<T> state)
         {
             solution.Add(state);
         }

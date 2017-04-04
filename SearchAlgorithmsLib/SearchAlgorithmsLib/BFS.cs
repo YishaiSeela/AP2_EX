@@ -6,31 +6,32 @@ using System.Threading.Tasks;
 
 namespace SearchAlgorithmsLib
 {
-    class BFS : Searcher
+    class BFS <T>: Searcher<T>
     {
-        Solution solution;
+        Solution <T> solution;
 
         int priority = 0;
         int shortest;
 
-        public override Solution search(ISearchable searchable)
+        public override Solution<T> search(ISearchable<T> searchable)
         { // Searcher's abstract method overriding
             addToOpenList(searchable.getInitialState(),priority); // inherited from Searcher
 
-            HashSet<State> closed = new HashSet<State>();
+            HashSet<State<T>> closed = new HashSet<State<T>>();
             while (OpenListSize > 0)
             {
-                State n = popOpenList(); // inherited from Searcher, removes the best state
+                State<T> n = popOpenList(); // inherited from Searcher, removes the best state
                 closed.Add(n);
                 if (n.Equals(searchable.getGoalState()))
                 {
                     shortest = priority;
-                    return backTrace(closed); // private method, back traces through the parents
+                    backTrace(closed,n);
+                    return solution;// private method, back traces through the parents
                                               // calling the delegated method, returns a list of states with n as a parent
                 }
-                List<State> succerssors = searchable.getAllPossibleStates(n);
+                List<State<T>> succerssors = searchable.getAllPossibleStates(n);
                 priority++;
-                foreach (State s in succerssors)
+                foreach (State<T> s in succerssors)
                 {
                     if (!closed.Contains(s) && !isInQueue(s))
                     {
@@ -56,5 +57,16 @@ namespace SearchAlgorithmsLib
             }
             return solution;
         }
+
+        public void backTrace(HashSet<State<T>> closed, State<T> n)
+        {
+
+            while (n.getPriorState() != null)
+            {
+                solution.addToSolution(n);
+                n = n.getPriorState();
+            }
+        }
+
     }
 }

@@ -7,22 +7,22 @@ using Priority_Queue;
 
 namespace SearchAlgorithmsLib
 {
-    public abstract class Searcher : ISearcher
+    public abstract class Searcher <T>: ISearcher<T>
     {
-        private SimplePriorityQueue<State> openList; 
+        private SimplePriorityQueue<State<T>> openList; 
         private int evaluatedNodes;
         public Searcher()
         {
             
-            openList = new SimplePriorityQueue<State>();
+            openList = new SimplePriorityQueue<State<T>>();
             evaluatedNodes = 0;
         }
-        protected void addToOpenList(State s,int priority)
+        protected void addToOpenList(State<T> s,int priority)
         {
             openList.Enqueue(s,priority);
         }
 
-        protected State popOpenList()
+        protected State<T> popOpenList()
         {
             evaluatedNodes++;
             return openList.Dequeue();
@@ -38,15 +38,15 @@ namespace SearchAlgorithmsLib
             return evaluatedNodes;
         }
         // check if an element exists in queue
-        public bool isInQueue(State s)
+        public bool isInQueue(State<T> s)
         {
             return openList.Contains(s);
         }
         // change pryority of item
-        public void changePriority(State s, int newPriority)
+        public void changePriority(State<T> s, int newPriority)
         {
             openList.UpdatePriority(s, newPriority);
         }
-        public abstract Solution search(ISearchable searchable);
+        public abstract Solution<T> search(ISearchable<T> searchable);
     }
 }
