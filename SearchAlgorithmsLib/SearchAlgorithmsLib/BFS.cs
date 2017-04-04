@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace SearchAlgorithmsLib
 {
-    class BFS <T>: Searcher<T>
+    public class BFS <T>: Searcher<T>
     {
-        Solution <T> solution;
+        public Solution <T> solution;
 
         int priority = 0;
         int shortest;

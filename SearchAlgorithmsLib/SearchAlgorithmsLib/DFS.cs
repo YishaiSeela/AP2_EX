@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SearchAlgorithmsLib
 {
-    class DFS <T>: Searcher<T>
+    public class DFS <T>: Searcher<T>
     {
         Solution<T> solution;
 

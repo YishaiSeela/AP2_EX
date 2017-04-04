@@ -38,5 +38,6 @@ namespace SearchAlgorithmsLib
         {
             return this.cameFrom;
         }
-    }}
+    }
+}
 

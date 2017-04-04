@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SearchAlgorithmsLib
 {
-    class Solution<T>
+    public class Solution<T>
     {
         List<State<T>> solution;
 
