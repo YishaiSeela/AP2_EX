@@ -6,6 +6,6 @@ using System.Threading.Tasks;
 
 namespace ConsoleApp1
 {
-    
+    Maze maze;
 
 }

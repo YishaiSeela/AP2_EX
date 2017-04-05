@@ -9,10 +9,11 @@ using MazeLib;
 
 namespace ConsoleApp1
 {
+
     public class mazeSerchableAdaptor: ISearchable<Task>
     {
-        
-       Maze maze;
+        //members
+       public Maze maze;
 
        
 

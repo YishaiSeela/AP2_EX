@@ -10,6 +10,7 @@ namespace ConsoleApp1
 {
     class Program
     {
+
         public void CompareSolvers()
         {
            

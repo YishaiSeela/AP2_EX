@@ -1,4 +1,3 @@
-C:\Users\Adi\Documents\Git\AP2_EX\SearchAlgorithmsLib\SearchAlgorithmsLib\obj\Debug\SearchAlgorithmsLib.csprojResolveAssemblyReference.cache
 C:\Users\Adi\Documents\Git\AP2_EX\SearchAlgorithmsLib\SearchAlgorithmsLib\bin\Debug\SearchAlgorithmsLib.dll
 C:\Users\Adi\Documents\Git\AP2_EX\SearchAlgorithmsLib\SearchAlgorithmsLib\bin\Debug\SearchAlgorithmsLib.pdb
 C:\Users\Adi\Documents\Git\AP2_EX\SearchAlgorithmsLib\SearchAlgorithmsLib\bin\Debug\Priority Queue.dll
