@@ -13,10 +13,8 @@ namespace ConsoleApp1
     public class MazeSerchableAdaptor: ISearchable<Task>
     {
         //members
-       public Maze maze;
-
-       
-
+        public Maze maze;
+         
         public List<State<Task>> getAllPossibleStates(State<Task> s)
         {
             throw new NotImplementedException();

@@ -21,7 +21,8 @@ namespace ConsoleApp1
         //create maze
         public void createMaze(DFSMazeGenerator mazeGenerator)
         {
-            //this.mazeGenerator = new DFSMazeGenerator().Generate(20, 20);
+            this.mazeGenerator = new DFSMazeGenerator();
+            mazeGenerator.Generate(20, 20);
             throw  new NotImplementedException();
 
         }
@@ -30,10 +31,11 @@ namespace ConsoleApp1
         {
             System.Console.Write(mazeGenerator.ToString());
             throw new NotImplementedException();
-
+  
         }
         public void solveBFS()
         {
+           
             throw new NotImplementedException();
         }
 
@@ -61,10 +63,7 @@ namespace ConsoleApp1
             solveDFS();
             //num of states in bfs
             printNumStatesBFS();
-            
-
         }
-
         static void Main(string[] args)
         {
         }

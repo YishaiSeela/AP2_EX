@@ -9,7 +9,6 @@ namespace SearchAlgorithmsLib
     public class DFS <T>: Searcher<T>
     {
         Solution<T> solution;
-
         public override Solution<T> search(ISearchable<T> searchable)
         {
             solution = new Solution<T>();

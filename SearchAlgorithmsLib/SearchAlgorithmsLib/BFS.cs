@@ -13,11 +13,9 @@ namespace SearchAlgorithmsLib
         int cost = 0;
 
         public override Solution<T> search(ISearchable<T> searchable)
-        { // Searcher's abstract method overriding
-            solution = new Solution<T>();
+        { 
 
             addToOpenList(searchable.getInitialState(),0); // inherited from Searcher
-
             HashSet<State<T>> closed = new HashSet<State<T>>();
             while (OpenListSize > 0)
             {
