@@ -17,9 +17,10 @@ namespace SearchAlgorithmsLib
             openList = new SimplePriorityQueue<State<T>>();
             evaluatedNodes = 0;
         }
-        protected void addToOpenList(State<T> s,int priority)
+        protected void addToOpenList(State<T> s,double priority)
         {
-            openList.Enqueue(s,priority);
+            s.setCost(priority);
+            openList.Enqueue(s, (float) s.getCost());
         }
 
         protected State<T> popOpenList()
@@ -43,10 +44,27 @@ namespace SearchAlgorithmsLib
             return openList.Contains(s);
         }
         // change pryority of item
-        public void changePriority(State<T> s, int newPriority)
+        public void changePriority(State<T> s, double newPriority)
         {
-            openList.UpdatePriority(s, newPriority);
+            s.setCost(newPriority);
+            openList.UpdatePriority(s, (float) newPriority);
         }
+
+        public Solution<T> backTrace(State<T> n, Solution<T> solution)
+        {
+            solution.addToSolution(n);
+
+            while (n.getPreviousState() != null)
+            {
+
+                n = n.getPreviousState();
+                solution.addToSolution(n);
+
+            }
+
+            return solution;
+        }
+
         public abstract Solution<T> search(ISearchable<T> searchable);
     }
 }

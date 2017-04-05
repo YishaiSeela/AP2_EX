@@ -8,11 +8,21 @@ namespace SearchAlgorithmsLib
 {
     public class Solution<T>
     {
-        List<State<T>> solution;
+        List<State<T>> solutionList = new List<State<T>>();
 
         public void addToSolution(State<T> state)
         {
-            solution.Add(state);
+            solutionList.Add(state);
+        }
+
+        public int count()
+        {
+            return solutionList.Count;
+        }
+
+        public State<T> getState(int index)
+        {
+            return solutionList[index];
         }
 
     }
