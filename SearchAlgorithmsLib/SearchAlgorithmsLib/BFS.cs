@@ -10,12 +10,13 @@ namespace SearchAlgorithmsLib
     {
         Solution <T> solution;
 
-        int priority = 0;
-        int shortest;
+        int cost = 0;
 
         public override Solution<T> search(ISearchable<T> searchable)
         { // Searcher's abstract method overriding
-            addToOpenList(searchable.getInitialState(),priority); // inherited from Searcher
+            solution = new Solution<T>();
+
+            addToOpenList(searchable.getInitialState(),0); // inherited from Searcher
 
             HashSet<State<T>> closed = new HashSet<State<T>>();
             while (OpenListSize > 0)
@@ -24,31 +25,30 @@ namespace SearchAlgorithmsLib
                 closed.Add(n);
                 if (n.Equals(searchable.getGoalState()))
                 {
-                    shortest = priority;
-                    backTrace(closed,n);
-                    return solution;// private method, back traces through the parents
-                                              // calling the delegated method, returns a list of states with n as a parent
+                    solution = backTrace(n, solution);
+                    //return solution;// private method, back traces through the parents
+                                             // calling the delegated method, returns a list of states with n as a parent
                 }
                 List<State<T>> succerssors = searchable.getAllPossibleStates(n);
-                priority++;
                 foreach (State<T> s in succerssors)
                 {
                     if (!closed.Contains(s) && !isInQueue(s))
                     {
                         // s.setCameFrom(n); // already done by getSuccessors
-                        addToOpenList(s,priority);
+                        s.setPreviousState(n);
+                        addToOpenList(s,n.getCost()+1);
                     }
                     else
                     {
-                        if (priority < shortest)
+                        if (n.getCost()+1 < s.getCost())
                         {
                             if (!isInQueue(s))
                             {
-                                addToOpenList(s, priority);
+                                addToOpenList(s, n.getCost() + 1);
                             }
                             else
                             {
-                                changePriority(s, priority);
+                                changePriority(s, n.getCost() + 1);
                             }
                         }
    
@@ -56,16 +56,6 @@ namespace SearchAlgorithmsLib
                 }
             }
             return solution;
-        }
-
-        public void backTrace(HashSet<State<T>> closed, State<T> n)
-        {
-
-            while (n.getPriorState() != null)
-            {
-                solution.addToSolution(n);
-                n = n.getPriorState();
-            }
         }
 
     }

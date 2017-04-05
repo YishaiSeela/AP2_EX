@@ -8,14 +8,17 @@ namespace SearchAlgorithmsLib
 {
     public class State<T>
     {
-        private bool isVisited = false;
-        private string state; // the state represented by a string
+        private T state; // the state represented by a string
         private double cost; // cost to reach this state (set by a setter)
         private State<T> cameFrom; // the state we came from to this state (setter)
-        public State(string state) // CTOR
+        public State(T state) // CTOR
         {
             this.state = state;
+            this.cost = 0;
+            this.cameFrom = null;
+        
         }
+
         public override bool Equals(object obj) // we override Object's Equals method
         {
             return state.Equals((obj as State<T>).state);
@@ -26,6 +29,7 @@ namespace SearchAlgorithmsLib
             return base.GetHashCode();
         }
 
+        /*
         public void setIsVisited(bool isVisited)
         {
             this.isVisited = isVisited;
@@ -33,10 +37,30 @@ namespace SearchAlgorithmsLib
         public bool getIsVisited()
         {
             return isVisited;
-        }
-        public State<T> getPriorState()
+        }*/
+
+        public void setCost(double cost)
         {
-            return this.cameFrom;
+            this.cost = cost;
         }
-    }}
+
+        public double getCost()
+        {
+            return cost;
+        }
+        public void setPreviousState(State<T> s)
+        {
+            cameFrom = s;
+        }
+        public State<T> getPreviousState()
+        {
+            return cameFrom;
+        }
+        public override string ToString()
+        {
+            return state.ToString();
+        }
+
+    }
+}
 
