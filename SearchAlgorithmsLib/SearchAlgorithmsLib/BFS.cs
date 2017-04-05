@@ -8,7 +8,7 @@ namespace SearchAlgorithmsLib
 {
     public class BFS <T>: Searcher<T>
     {
-        Solution <T> solution;
+        public Solution <T> solution;
 
         int cost = 0;
 
