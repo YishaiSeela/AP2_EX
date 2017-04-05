@@ -41,7 +41,6 @@ namespace SearchAlgorithmsLib
                     }
                 }
             }
-            Console.Write("blah");
 
             return solution;
         }
