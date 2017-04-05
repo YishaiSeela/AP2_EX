@@ -10,10 +10,10 @@ namespace SearchAlgorithmsLib
     {
         List<State<T>> solution;
 
-        public void addToSolution(State<T> state)
-        {
-            solution.Add(state);
-        }
+    public void addToSolution(State<T> state)
+    {
+        solution.Add(state);
+    }
 
     }
 }

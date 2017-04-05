@@ -14,9 +14,9 @@ namespace SearchAlgorithmsLib
         int shortest;
 
         public override Solution<T> search(ISearchable<T> searchable)
-        { // Searcher's abstract method overriding
+        { 
+            // Searcher's abstract method overriding
             addToOpenList(searchable.getInitialState(),priority); // inherited from Searcher
-
             HashSet<State<T>> closed = new HashSet<State<T>>();
             while (OpenListSize > 0)
             {

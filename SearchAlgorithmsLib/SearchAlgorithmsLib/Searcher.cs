@@ -29,7 +29,8 @@ namespace SearchAlgorithmsLib
         }
         // a property of openList
         public int OpenListSize
-        { // it is a read-only property :)
+        { 
+            // it is a read-only property :)
             get { return openList.Count; }
         }
         // ISearcher’s methods:
