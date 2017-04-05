@@ -10,7 +10,7 @@ using MazeLib;
 namespace ConsoleApp1
 {
 
-    public class mazeSerchableAdaptor: ISearchable<Task>
+    public class MazeSerchableAdaptor: ISearchable<Task>
     {
         //members
        public Maze maze;
@@ -31,6 +31,6 @@ namespace ConsoleApp1
         {
             throw new NotImplementedException();
         }
-        public Maze
+        
     }
 }
