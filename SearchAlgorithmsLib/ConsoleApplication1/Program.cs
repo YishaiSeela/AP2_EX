@@ -21,8 +21,8 @@ class Program
         State<int> six = new State<int>(6);
         State<int> seven = new State<int>(7);
 
-        Adj[one] = new List<State<int>> {  two, three };
-        Adj[two] = new List<State<int>> { four, five, one };
+        Adj[one] = new List<State<int>> {  three, two };
+        Adj[two] = new List<State<int>> { four, five,one };
         Adj[three] = new List<State<int>> { six,two};
         Adj[four] = new List<State<int>>();
         Adj[five] = new List<State<int>> { six };
@@ -33,6 +33,8 @@ class Program
         Solution<int> sol = ser.search(test1);
 
         printSol(sol);
+        Console.Write(ser.getNumberOfNodesEvaluated() + " nodes evaluated\n");
+
 
     }
 
@@ -43,6 +45,8 @@ class Program
             Console.Write(s.getState(i).ToString() + "," + s.getState(i).getCost() + " | ");
         }
         Console.WriteLine();
+        
+
     }
 }
 

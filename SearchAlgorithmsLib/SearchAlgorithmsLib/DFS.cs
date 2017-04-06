@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SearchAlgorithmsLib
 {
-    public class DFS <T>: Searcher<T>
+    public class DFS<T> : Searcher<T>
     {
         Solution<T> solution;
 
@@ -24,17 +24,21 @@ namespace SearchAlgorithmsLib
             while (stack.Count() != 0)
             {
                 State<T> v = stack.Pop();
+
                 if (v.getCost() == 0)
                 {
+                    
                     v.setCost(1);
                     List<State<T>> succerssors = searchable.getAllPossibleStates(v);
                     foreach (State<T> s in succerssors)
                     {
+                        if (s != searchable.getInitialState()) { 
                         s.setPreviousState(v);
-
+                    }
                         if (s == searchable.getGoalState())
                         {
-                            solution = backTrace(s,solution);
+                            
+                            solution = backTrace(s, solution);
                             return solution;
                         }
                         stack.Push(s);

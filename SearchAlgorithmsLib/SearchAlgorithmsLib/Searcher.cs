@@ -52,11 +52,11 @@ namespace SearchAlgorithmsLib
 
         public Solution<T> backTrace(State<T> n, Solution<T> solution)
         {
+
             solution.addToSolution(n);
 
             while (n.getPreviousState() != null)
             {
-
                 n = n.getPreviousState();
                 solution.addToSolution(n);
 

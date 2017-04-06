@@ -50,7 +50,11 @@ namespace SearchAlgorithmsLib
         }
         public void setPreviousState(State<T> s)
         {
-            cameFrom = s;
+            if (cameFrom == null)
+            {
+
+                cameFrom = s;
+            }
         }
         public State<T> getPreviousState()
         {
@@ -63,5 +67,5 @@ namespace SearchAlgorithmsLib
 
     }
 }
-}
+
 
