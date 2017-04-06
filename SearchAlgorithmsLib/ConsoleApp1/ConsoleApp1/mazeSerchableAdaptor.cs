@@ -27,23 +27,38 @@ namespace ConsoleApp1
             this.maze = maze;
         }
 
-        public List<State<Task>> getAllPossibleStates(State<Task> s)
+        public List<State<CellType>> getAllPossibleStates(State<CellType> s)
         {
-            int numRows;
-            List<State<Task>> list = new List<State<Task>>();
+            int numRows = maze.Rows;
+            int numCol = maze.Cols;
+            int i, j;
+            
+            List<State<CellType>> list = new List<State<CellType>>();
             numRows = this.maze.Rows;
-            for()
-           
+            for (i = 0; i < numRows; i++)
+            {
+                
+                for (j = 0; j < numCol; j++)
+                {
+                    
+                    list.Add(new State<CellType>(maze[i,j]));
+                    
+                }
+
+            }
+
             throw new NotImplementedException();
         }
 
         public State<Task> getGoalState()
         {
+            maze.GoalPos();
             throw new NotImplementedException();
         }
 
         public State<Task> getInitialState()
         {
+            maze.InitialPos(0, 0);
             throw new NotImplementedException();
         }
         
