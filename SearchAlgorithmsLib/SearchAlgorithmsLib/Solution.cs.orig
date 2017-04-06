@@ -1,0 +1,51 @@
+<<<<<<< HEAD
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace SearchAlgorithmsLib
+{
+    public class Solution<T>
+    {
+        List<State<T>> solutionList = new List<State<T>>();
+
+        public void addToSolution(State<T> state)
+        {
+            solutionList.Add(state);
+        }
+
+        public int count()
+        {
+            return solutionList.Count;
+        }
+
+        public State<T> getState(int index)
+        {
+            return solutionList[index];
+        }
+
+    }
+}
+=======
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace SearchAlgorithmsLib
+{
+    public class Solution<T>
+    {
+        List<State<T>> solution;
+
+    public void addToSolution(State<T> state)
+    {
+        solution.Add(state);
+    }
+
+    }
+}
+>>>>>>> 8828c487743e50fd37a7a27a3c58fe057734b3db

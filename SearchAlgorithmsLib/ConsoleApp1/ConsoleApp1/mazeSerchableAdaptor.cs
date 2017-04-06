@@ -14,9 +14,26 @@ namespace ConsoleApp1
     {
         //members
         public Maze maze;
-         
+        
+
+        //constructor
+        public MazeSerchableAdaptor()
+        {
+            this.maze = new Maze();
+        }
+
+        public MazeSerchableAdaptor(Maze maze)
+        {
+            this.maze = maze;
+        }
+
         public List<State<Task>> getAllPossibleStates(State<Task> s)
         {
+            int numRows;
+            List<State<Task>> list = new List<State<Task>>();
+            numRows = this.maze.Rows;
+            for()
+           
             throw new NotImplementedException();
         }
 
