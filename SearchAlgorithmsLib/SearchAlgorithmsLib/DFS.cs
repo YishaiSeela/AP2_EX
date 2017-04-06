@@ -15,37 +15,46 @@ namespace SearchAlgorithmsLib
             solution = new Solution<T>();
             Stack<State<T>> stack = new Stack<State<T>>();
             State<T> start = (searchable.getInitialState());
+            //if initial state is also the goal state - return it is solution
             if (start == searchable.getGoalState())
             {
                 solution.addToSolution(start);
                 return solution;
             }
+            //else - push initial state to queue
             stack.Push(start);
+            //while stack isn't empty - pop a state out of it
             while (stack.Count() != 0)
             {
-                State<T> v = stack.Pop();
+                State<T> currentState = stack.Pop();
 
-                if (v.getCost() == 0)
+                //if cost is zero - state is undiscovered
+                if (currentState.getCost() == 0)
                 {
-                    
-                    v.setCost(1);
-                    List<State<T>> succerssors = searchable.getAllPossibleStates(v);
+                    //set cost to 1 - state is discovered
+                    currentState.setCost(1);
+                    //get succesors
+                    List<State<T>> succerssors = searchable.getAllPossibleStates(currentState);
                     foreach (State<T> s in succerssors)
                     {
-                        if (s != searchable.getInitialState()) { 
-                        s.setPreviousState(v);
+                        //for each succesor (besides the initial state) - set it's previous state
+                        if (s != searchable.getInitialState() && (s.getPreviousState() == null)) { 
+                        s.setPreviousState(currentState);
                     }
+                        //if a succesor is the goal state
                         if (s == searchable.getGoalState())
                         {
-                            
+                            //backtrace path and return soloution
                             solution = backTrace(s, solution);
                             return solution;
                         }
+                        //else - add suceesor to stack
                         stack.Push(s);
                     }
                 }
             }
 
+            //if stack is empty and no solution was found - return empty solution
             return solution;
         }
 
