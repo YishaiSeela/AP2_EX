@@ -10,9 +10,9 @@ namespace SearchAlgorithmsLib
     {
         List<State<T>> solutionList = new List<State<T>>();
 
-        public void addToSolution(State<T> state)
-        {
-            solutionList.Add(state);
+    public void addToSolution(State<T> state)
+    {
+            solution.Add(state);
         }
 
         public int count()
@@ -23,7 +23,7 @@ namespace SearchAlgorithmsLib
         public State<T> getState(int index)
         {
             return solutionList[index];
-        }
+    }
 
     }
 }
