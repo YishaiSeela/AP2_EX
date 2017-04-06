@@ -7,8 +7,7 @@ using MazeGeneratorLib;
 using MazeLib;
 using SearchAlgorithmsLib;
 
-
-
+()
 namespace ConsoleApp1
 {
     class Program
@@ -16,7 +15,6 @@ namespace ConsoleApp1
         //members
         public DFSMazeGenerator mazeGenerator;
         public Solution<Task> sol;
-        //methods-members
 
         //create maze
         public void createMaze(DFSMazeGenerator mazeGenerator)
@@ -24,18 +22,15 @@ namespace ConsoleApp1
             this.mazeGenerator = new DFSMazeGenerator();
             mazeGenerator.Generate(20, 20);
             throw  new NotImplementedException();
-
         }
         //print the maze
         public void printMaze()
         {
             System.Console.Write(mazeGenerator.ToString());
             throw new NotImplementedException();
-  
         }
         public void solveBFS()
         {
-           
             throw new NotImplementedException();
         }
 

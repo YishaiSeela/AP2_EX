@@ -10,7 +10,7 @@ using MazeLib;
 namespace ConsoleApp1
 {
 
-    public class MazeSerchableAdaptor: ISearchable<Task>
+    public class MazeSerchableAdaptor: ISearchable<T>
     {
         //members
         public Maze maze;
@@ -27,40 +27,54 @@ namespace ConsoleApp1
             this.maze = maze;
         }
 
-        public List<State<CellType>> getAllPossibleStates(State<CellType> s)
+        private Position getPositionFromState(State<Position> s)
+        {
+            string temp = s.ToString();
+            string[] arr = temp.Split(',');
+            string[] part = arr[0].Split('(');
+            int i = Int32.Parse(part[1]);
+            part = arr[1].Split(')');
+            int j = Int32.Parse(part[0]);
+            return new Position(i, j);
+        }
+
+        public List<State<Position>> getAllPossibleStates(State<Position> s)
         {
             int numRows = maze.Rows;
             int numCol = maze.Cols;
-            int i, j;
             
-            List<State<CellType>> list = new List<State<CellType>>();
-            numRows = this.maze.Rows;
-            for (i = 0; i < numRows; i++)
+            List<State<Position>> list = new List<State<Position>>();
+            Position position = getPositionFromState(s);
+            if(0 <= position.Row - 1)
             {
-                
-                for (j = 0; j < numCol; j++)
+                if (CellType.Free = maze[position.Row - 1, position.Col])
                 {
-                    
-                    list.Add(new State<CellType>(maze[i,j]));
-                    
+
                 }
-
             }
+            if (position.Row + 1 )
+            {
+                if (CellType.Free = maze[position.Row - 1, position.Col])
+                {
 
+                }
+            }
+            return list;
+        }
+
+        public State<Position> getGoalState()
+        {
+            return new State<Position>(maze);
             throw new NotImplementedException();
         }
 
-        public State<Task> getGoalState()
+        public State<Position> getInitialState()
         {
-            maze.GoalPos();
-            throw new NotImplementedException();
-        }
-
-        public State<Task> getInitialState()
-        {
-            maze.InitialPos(0, 0);
+            //maze.InitialPos(0, 0);
+            
             throw new NotImplementedException();
         }
         
     }
 }
+
