@@ -1,0 +1,30 @@
+C:\Users\Yishai\documents\visual studio 2015\Projects\ConsoleApplication1\ConsoleApplication1\bin\Debug\ConsoleApplication1.exe.config
+C:\Users\Yishai\documents\visual studio 2015\Projects\ConsoleApplication1\ConsoleApplication1\bin\Debug\ConsoleApplication1.exe
+C:\Users\Yishai\documents\visual studio 2015\Projects\ConsoleApplication1\ConsoleApplication1\bin\Debug\ConsoleApplication1.pdb
+C:\Users\Yishai\documents\visual studio 2015\Projects\ConsoleApplication1\ConsoleApplication1\bin\Debug\MazeGeneratorLib.dll
+C:\Users\Yishai\documents\visual studio 2015\Projects\ConsoleApplication1\ConsoleApplication1\bin\Debug\MazeLib.dll
+C:\Users\Yishai\documents\visual studio 2015\Projects\ConsoleApplication1\ConsoleApplication1\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Yishai\documents\visual studio 2015\Projects\ConsoleApplication1\ConsoleApplication1\bin\Debug\SearchAlgorithmsLib.dll
+C:\Users\Yishai\documents\visual studio 2015\Projects\ConsoleApplication1\ConsoleApplication1\bin\Debug\Priority Queue.dll
+C:\Users\Yishai\documents\visual studio 2015\Projects\ConsoleApplication1\ConsoleApplication1\bin\Debug\SearchAlgorithmsLib.pdb
+C:\Users\Yishai\documents\visual studio 2015\Projects\ConsoleApplication1\ConsoleApplication1\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Yishai\documents\visual studio 2015\Projects\ConsoleApplication1\ConsoleApplication1\bin\Debug\Priority Queue.pdb
+C:\Users\Yishai\documents\visual studio 2015\Projects\ConsoleApplication1\ConsoleApplication1\bin\Debug\Priority Queue.xml
+C:\Users\Yishai\documents\visual studio 2015\Projects\ConsoleApplication1\ConsoleApplication1\obj\Debug\Server.csprojResolveAssemblyReference.cache
+C:\Users\Yishai\documents\visual studio 2015\Projects\ConsoleApplication1\ConsoleApplication1\obj\Debug\ConsoleApplication1.exe
+C:\Users\Yishai\documents\visual studio 2015\Projects\ConsoleApplication1\ConsoleApplication1\obj\Debug\ConsoleApplication1.pdb
+C:\Users\Yishai\Documents\Visual Studio 2015\Projects\EX1\ConsoleApplication1\bin\Debug\ConsoleApplication1.exe.config
+C:\Users\Yishai\Documents\Visual Studio 2015\Projects\EX1\ConsoleApplication1\obj\Debug\ConsoleApplication1.exe
+C:\Users\Yishai\Documents\Visual Studio 2015\Projects\EX1\ConsoleApplication1\obj\Debug\ConsoleApplication1.pdb
+C:\Users\Yishai\Documents\Visual Studio 2015\Projects\EX1\ConsoleApplication1\bin\Debug\ConsoleApplication1.exe
+C:\Users\Yishai\Documents\Visual Studio 2015\Projects\EX1\ConsoleApplication1\bin\Debug\ConsoleApplication1.pdb
+C:\Users\Yishai\Documents\Visual Studio 2015\Projects\EX1\ConsoleApplication1\bin\Debug\MazeGeneratorLib.dll
+C:\Users\Yishai\Documents\Visual Studio 2015\Projects\EX1\ConsoleApplication1\bin\Debug\MazeLib.dll
+C:\Users\Yishai\Documents\Visual Studio 2015\Projects\EX1\ConsoleApplication1\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Yishai\Documents\Visual Studio 2015\Projects\EX1\ConsoleApplication1\bin\Debug\SearchAlgorithmsLib.dll
+C:\Users\Yishai\Documents\Visual Studio 2015\Projects\EX1\ConsoleApplication1\bin\Debug\Priority Queue.dll
+C:\Users\Yishai\Documents\Visual Studio 2015\Projects\EX1\ConsoleApplication1\bin\Debug\SearchAlgorithmsLib.pdb
+C:\Users\Yishai\Documents\Visual Studio 2015\Projects\EX1\ConsoleApplication1\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Yishai\Documents\Visual Studio 2015\Projects\EX1\ConsoleApplication1\bin\Debug\Priority Queue.pdb
+C:\Users\Yishai\Documents\Visual Studio 2015\Projects\EX1\ConsoleApplication1\bin\Debug\Priority Queue.xml
+C:\Users\Yishai\Documents\Visual Studio 2015\Projects\EX1\ConsoleApplication1\obj\Debug\Server.csprojResolveAssemblyReference.cache
