@@ -19,6 +19,11 @@ namespace Server
             commands = new Dictionary<string, ICommand>();
             commands.Add("generate", new GenerateMazeCommand(model));
             commands.Add("solve", new SolveMazeCommand(model));
+            commands.Add("start", new StartGameCommand(model));
+            commands.Add("list",new ShowListCommand(model));
+            commands.Add("join", new JoinGameCommand(model));
+
+
 
             // more commands...
         }

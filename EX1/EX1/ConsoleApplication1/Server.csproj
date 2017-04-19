@@ -53,6 +53,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Game.cs" />
+    <Compile Include="JoinGameCommand.cs" />
+    <Compile Include="ShowListCommand.cs" />
+    <Compile Include="StartGameCommand.cs" />
     <Compile Include="ClientHandler.cs" />
     <Compile Include="IModel.cs" />
     <Compile Include="IClientHandler.cs" />

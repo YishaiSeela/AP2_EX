@@ -1,23 +1,23 @@
-﻿using System;
+﻿using MazeLib;
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using MazeGeneratorLib;
-using MazeLib;
-using System.Net;
 using System.Net.Sockets;
+using System.Text;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace Server
 {
-    class GenerateMazeCommand : ICommand
+    class StartGameCommand : ICommand
     {
         private IModel model;
+        private Game game;
 
         /*
         * constructor
         */
-        public GenerateMazeCommand(IModel model)
+        public StartGameCommand(IModel model)
         {
             this.model = model;
         }
@@ -34,12 +34,18 @@ namespace Server
             int cols = int.Parse(args[2]);
             //generate maze
             Maze maze = model.GenerateMaze(name, rows, cols);
-            //add maze to list
-            model.AddMaze(maze);
-            //set name of maze
+            //set maze name
             maze.Name = name;
+            //add maze to list of games
+            game = new Game(maze, client);
+            model.AddGame(game);
+
+            while (!game.HasTwoPlayers()) {
+                Thread.Sleep(10);
+            }
             //retuen JSON string
             return maze.ToJSON();
         }
+
     }
 }

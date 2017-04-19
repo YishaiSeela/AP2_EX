@@ -93,14 +93,6 @@ namespace Server
             string[] command = text.Split(' ');
             Console.WriteLine("Received Text: " + command[0]);
 
-            /*else if (command[0] == "time") // Client requested time
-            {
-                Console.WriteLine("Text is a get time request");
-                byte[] data = Encoding.ASCII.GetBytes(DateTime.Now.ToLongTimeString());
-                current.Send(data);
-               
-                Console.WriteLine("Time sent to client");
-            }*/
             if (text.ToLower() == "exit") // Client wants to exit gracefully
             {
                 // Always Shutdown before closing

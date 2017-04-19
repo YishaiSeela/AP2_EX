@@ -4,10 +4,12 @@ using MazeLib;
 using SearchAlgorithmsLib;
 using System;
 using System.Collections.Generic;
+using System.Net.Sockets;
+using System.Linq;
 
 namespace Server
 {
-    internal class Model : IModel
+    public class Model : IModel
     {
         //members
         private DFSMazeGenerator mazeGenerator;
@@ -17,6 +19,8 @@ namespace Server
         private Maze maze;
         private Maze correct;
         private List<Maze> mazes = new List<Maze>();
+        private List<Game> games = new List<Game>();
+
 
         /*
         * GenerateMaze - create the maze
@@ -26,10 +30,24 @@ namespace Server
             mazeGenerator = new DFSMazeGenerator();
             //this.mazeGenerator = new DFSMazeGenerator();
             maze = mazeGenerator.Generate(rows, cols);
-            mazes.Add(maze);
             return maze;
         }
 
+        /*
+        * AddMaze - add maze to list of mazes
+        */
+        public void AddMaze(Maze maze)
+        {
+            mazes.Add(maze);
+        }
+
+        /*
+         * AddGame - add game to list of games
+         */
+        public void AddGame(Game game)
+        {
+            games.Add(game);
+        }
         /*
         * PrintMaze - print the maze
         */
@@ -83,6 +101,24 @@ namespace Server
         }
 
         /*
+        * GetGameList - get list of games
+        */
+        public List<Game> GetGameList()
+        {
+            return games;
+        }
+
+        /*
+        * RemoveGame - remove game from list
+        */
+        public void RemoveGame(Game correctGame)
+        {
+            Game remove = games.Single(game => game.GetName() == correctGame.GetName());
+            games.Remove(remove);
+        }
+
+
+        /*
         * PrintNumStatesBFS - print no. of nodes evaluated by BFS
         */
         public void PrintNumStatesBFS(Maze maze)
@@ -105,5 +141,7 @@ namespace Server
         {
             return nodesEvaluated;
         }
+
+
     }
 }
