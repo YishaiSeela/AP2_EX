@@ -12,8 +12,8 @@ namespace Server
         void AddMaze(Maze maze);
         void AddGame(Game game);
 
-        List<Game> GetGameList();
+        Dictionary<string,Game> GetGameList();
         int GetEvaluatedNodes();
-        void RemoveGame(Game correctGame);
+        void RemoveGame(string removeGame);
     }
 }

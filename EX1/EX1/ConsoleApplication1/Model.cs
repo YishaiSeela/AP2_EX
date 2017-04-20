@@ -19,7 +19,8 @@ namespace Server
         private Maze maze;
         private Maze correct;
         private List<Maze> mazes = new List<Maze>();
-        private List<Game> games = new List<Game>();
+        //private List<Game> games = new List<Game>();
+        private Dictionary<string, Game> _games = new Dictionary<string, Game>();
 
 
         /*
@@ -44,9 +45,9 @@ namespace Server
         /*
          * AddGame - add game to list of games
          */
-        public void AddGame(Game game)
-        {
-            games.Add(game);
+        public void AddGame( Game game)
+        {;
+            _games.Add(game.GetName(),game);
         }
         /*
         * PrintMaze - print the maze
@@ -103,18 +104,18 @@ namespace Server
         /*
         * GetGameList - get list of games
         */
-        public List<Game> GetGameList()
+        public Dictionary<string, Game> GetGameList()
         {
-            return games;
+            return _games;
         }
 
         /*
         * RemoveGame - remove game from list
         */
-        public void RemoveGame(Game correctGame)
+        public void RemoveGame(string removeGame)
         {
-            Game remove = games.Single(game => game.GetName() == correctGame.GetName());
-            games.Remove(remove);
+            GetGameList().Remove(removeGame);
+
         }
 
 

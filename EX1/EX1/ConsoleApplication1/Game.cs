@@ -54,7 +54,6 @@ namespace Server
         public void SetPlayer(TcpClient client)
         {
             player2 = client;
-            Console.WriteLine(hasTwoPlayers);
             hasTwoPlayers = true;            
         }
 

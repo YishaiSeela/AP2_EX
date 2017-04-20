@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net.Sockets;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace Server
@@ -30,29 +31,26 @@ namespace Server
             correctGame = null;
             //name of maze
             string name = args[0];
-            
             //find the maze to solve
-            foreach (Game game in model.GetGameList())
+
+            if (model.GetGameList().ContainsKey(name))
             {
-                //if a maze with the same name was found - save it
-                if (game.GetName() == name)
-                {
-                    correctGame = game;
-                }
-            }
-            //if maze wasn't found - throw exception
-            if (correctGame == null)
-            {
-                return "game dosn't exist";
-            }
-            else
-            {
+                correctGame = model.GetGameList()[name];
+
                 correctGame.SetPlayer(client);
+
+                Thread.Sleep(10);
                 //revome game from list
-                model.RemoveGame(correctGame);  
+                model.RemoveGame(correctGame.GetName());
                 //retuen JSON string
                 return correctGame.GetMaze().ToJSON();
             }
+            else //if maze wasn't found - throw exception
+            {
+                return "game dosn't exist";
+
+            }
+
         }
     }
 }

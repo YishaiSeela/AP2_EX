@@ -7,10 +7,8 @@ namespace Client
 {
     class ClientProgram
     {
-        private static readonly Socket ClientSocket = new Socket
+        private static Socket ClientSocket = new Socket
             (AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
-
-        private const int PORT = 100;
 
         static void Main()
         {
@@ -31,7 +29,7 @@ namespace Client
                     attempts++;
                     Console.WriteLine("Connection attempt " + attempts);
                     // Change IPAddress.Loopback to a remote IP to connect to a remote host.
-                    ClientSocket.Connect(IPAddress.Loopback, PORT);
+                    ClientSocket.Connect(IPAddress.Parse("127.0.0.1"), 8000);
                 }
                 catch (SocketException)
                 {
@@ -45,12 +43,27 @@ namespace Client
 
         private static void RequestLoop()
         {
-            Console.WriteLine(@"<Type ""exit"" to properly disconnect client>");
+            //Console.WriteLine(@"<Type ""exit"" to properly disconnect client>");
 
             while (true)
             {
-                SendRequest();
-                ReceiveResponse();
+                Console.Write("Send a request: ");
+                //string request = Console.ReadLine();
+                byte[] request = Encoding.ASCII.GetBytes(Console.ReadLine());
+                ClientSocket.Send(request, 0, request.Length, SocketFlags.None);
+
+                if (request.ToString() == "exit")
+                {
+                    Exit();
+                }
+
+                var buffer = new byte[16384];
+                int received = ClientSocket.Receive(buffer, SocketFlags.None);
+                if (received == 0) return;
+                var data = new byte[received];
+                Array.Copy(buffer, data, received);
+                string text = Encoding.ASCII.GetString(data);
+                Console.WriteLine(text);
             }
         }
 
@@ -59,42 +72,11 @@ namespace Client
         /// </summary>
         private static void Exit()
         {
-            SendString("exit"); // Tell the server we are exiting
+            var exit = Encoding.ASCII.GetBytes("exit");
+            ClientSocket.Send(exit, 0, exit.Length, SocketFlags.None); // Tell the server we are exiting
             ClientSocket.Shutdown(SocketShutdown.Both);
             ClientSocket.Close();
             Environment.Exit(0);
-        }
-
-        private static void SendRequest()
-        {
-            Console.Write("Send a request: ");
-            string request = Console.ReadLine();
-            SendString(request);
-
-            if (request.ToLower() == "exit")
-            {
-                Exit();
-            }
-        }
-
-        /// <summary>
-        /// Sends a string to the server with ASCII encoding.
-        /// </summary>
-        private static void SendString(string text)
-        {
-            byte[] buffer = Encoding.ASCII.GetBytes(text);
-            ClientSocket.Send(buffer, 0, buffer.Length, SocketFlags.None);
-        }
-
-        private static void ReceiveResponse()
-        {
-            var buffer = new byte[2048];
-            int received = ClientSocket.Receive(buffer, SocketFlags.None);
-            if (received == 0) return;
-            var data = new byte[received];
-            Array.Copy(buffer, data, received);
-            string text = Encoding.ASCII.GetString(data);
-            Console.WriteLine(text);
         }
     }
 }

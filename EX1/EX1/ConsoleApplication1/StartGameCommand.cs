@@ -27,6 +27,7 @@ namespace Server
         */
         public string Execute(string[] args, TcpClient client)
         {
+            bool twoPlayers = false;
             //name of maze
             string name = args[0];
             //size of maze (rows and columns)
@@ -40,9 +41,15 @@ namespace Server
             game = new Game(maze, client);
             model.AddGame(game);
 
-            while (!game.HasTwoPlayers()) {
+            while (!twoPlayers) {
+                if (model.GetGameList().ContainsKey(name))
+                {
+                    twoPlayers = model.GetGameList()[name].HasTwoPlayers();
+                }
                 Thread.Sleep(10);
+
             }
+
             //retuen JSON string
             return maze.ToJSON();
         }

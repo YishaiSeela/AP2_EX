@@ -27,13 +27,14 @@ namespace Server
         /*
         * ToJSON - get JSON string of list of games
         */
-        public string ToJSON(List<Game> games)
+        public string ToJSON(Dictionary<string,Game> games)
         {
             List<String> gameNames = new List<String>();
             //JObject mazeObj = new JObject();
-            foreach (Game game in model.GetGameList())
+            foreach (KeyValuePair<string, Game> game in model.GetGameList())
+
             {
-                gameNames.Add(game.GetName());
+                gameNames.Add(game.ToString());
             }
 
             return JsonConvert.SerializeObject(gameNames);

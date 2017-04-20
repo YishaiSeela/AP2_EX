@@ -9,16 +9,14 @@ namespace Server
 {
     class ServerProgram
     {
-        private static readonly Socket serverSocket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
-        private static readonly List<Socket> clientSockets = new List<Socket>();
-        private const int BUFFER_SIZE = 2048;
-        private const int PORT = 100;
-        private static readonly byte[] buffer = new byte[BUFFER_SIZE];
+        private static Socket serverSocket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
+        private static List<Socket> clientSockets = new List<Socket>();
+        private static byte[] buffer = new byte[16384];
         private static Controller controller = new Controller();
 
         static void Main()
         {
-            
+
             Console.Title = "Server";
             SetupServer();
             Console.ReadLine(); // When we press enter close everything
@@ -28,7 +26,7 @@ namespace Server
         private static void SetupServer()
         {
             Console.WriteLine("Setting up server...");
-            serverSocket.Bind(new IPEndPoint(IPAddress.Any, PORT));
+            serverSocket.Bind(new IPEndPoint(IPAddress.Parse("127.0.0.1"), 8000));
             serverSocket.Listen(0);
             serverSocket.BeginAccept(AcceptCallback, null);
             Console.WriteLine("Server setup complete");
@@ -63,7 +61,7 @@ namespace Server
             }
 
             clientSockets.Add(socket);
-            socket.BeginReceive(buffer, 0, BUFFER_SIZE, SocketFlags.None, ReceiveCallback, socket);
+            socket.BeginReceive(buffer, 0, buffer.Length, SocketFlags.None, ReceiveCallback, socket);
             Console.WriteLine("Client connected, waiting for request...");
             serverSocket.BeginAccept(AcceptCallback, null);
         }
@@ -104,11 +102,11 @@ namespace Server
             }
             else
             {
-                byte[] data = Encoding.ASCII.GetBytes(controller.ExecuteCommand(text,client));
+                byte[] data = Encoding.ASCII.GetBytes(controller.ExecuteCommand(text, client));
                 current.Send(data);
             }
 
-            current.BeginReceive(buffer, 0, BUFFER_SIZE, SocketFlags.None, ReceiveCallback, current);
+            current.BeginReceive(buffer, 0, buffer.Length, SocketFlags.None, ReceiveCallback, current);
         }
     }
 }
