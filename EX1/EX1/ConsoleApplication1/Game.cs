@@ -74,11 +74,19 @@ namespace Server
             return player1;
         }
 
+        /*
+        * getFirstPleyer - get second player
+        */
+        public TcpClient getSecondPleyer()
+        {
+            return player2;
+        }
+
 
         /*
-         * getSecondPleyer - get second player
+         * getOtherPleyer - get other player
          */
-        public TcpClient getSecondPleyer(TcpClient client)
+        public TcpClient getOtherPleyer(TcpClient client)
         {
             if (client == player1)
             {

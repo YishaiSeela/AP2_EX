@@ -76,7 +76,7 @@ namespace Server
 
             JObject mazeObj = new JObject();
             mazeObj["Name"] = name;
-            mazeObj["solution"] = solutionStr;
+            mazeObj["Solution"] = solutionStr;
             mazeObj["NodesEvaluated"] = nodesEvaluated;
 
             return mazeObj.ToString();

@@ -40,7 +40,6 @@ namespace Server
             //add maze to list of games
             game = new Game(maze, client);
             model.AddGame(game);
-            Console.WriteLine("now " + model.GetGameList().Count);
             while (!twoPlayers) {
                 if (model.GetGameList().ContainsKey(name))
                 {

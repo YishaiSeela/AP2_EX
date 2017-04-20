@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using Server;
 using System;
 using System.Collections.Generic;
@@ -25,18 +26,13 @@ namespace Server
         /*
         * ToJSON - get JSON string of list of games
         */
-        public string ToJSON(string move)
+        public string ToJSON(string name, string direction)
         {
-            List<String> gameNames = new List<String>();
-            //JObject mazeObj = new JObject();
-            foreach (KeyValuePair<string, Game> game in model.GetGameList())
+            JObject mazeObj = new JObject();
+            mazeObj["Name"] = name;
+            mazeObj["Direction"] = direction;
 
-            {
-                gameNames.Add(game.ToString());
-            }
-
-            return JsonConvert.SerializeObject(gameNames);
-            //return mazeObj.ToString();
+            return mazeObj.ToString();
         }
 
         /*
@@ -44,28 +40,29 @@ namespace Server
         */
         public string Execute(string[] args, TcpClient client)
         {
-            Game currentGame;
-            TcpClient otherPlayer;
+            Game currentGame = null;
+            TcpClient otherPlayer = null;
             foreach (Game game in model.GetGameList().Values)
             {
-                if (game.getFirstPleyer() == client)
+                Console.WriteLine(game.GetName()+game.HasTwoPlayers());
+
+                if ((game.getFirstPleyer() == client) || (game.getSecondPleyer() == client))
                 {
                     currentGame = game;
-                    otherPlayer = currentGame.getSecondPleyer(client);
+                    otherPlayer = currentGame.getOtherPleyer(client);
                 }
             }
-
-            using (NetworkStream stream = client.GetStream())
-            using (StreamReader reader = new StreamReader(stream))
-            using (StreamWriter writer = new StreamWriter(stream))
+            /*
+            using (NetworkStream stream = otherPlayer.GetStream())
+            using (BinaryReader reader = new BinaryReader(stream))
+            using (BinaryWriter writer = new BinaryWriter(stream))
             {
-
-                string result = ToJSON(args[1]);
+                string result = ToJSON(currentGame.GetName(), args[0]);
                 writer.Write(result);
                 writer.Flush();
-
-            }
-            return "nothing"; // ToJSON(model.GetGameList());
+            }*/
+            
+            return ToJSON(currentGame.GetName(), args[0]); // ToJSON(model.GetGameList());
         }
     }
 }

@@ -31,9 +31,12 @@ namespace Server
         {
             List<String> gameNames = new List<String>();
             //JObject mazeObj = new JObject();
-            foreach (string name in model.GetGameList().Keys)        
+            foreach (Game game in model.GetGameList().Values)        
             {
-                gameNames.Add(name);
+                if (!game.HasTwoPlayers())
+                {
+                    gameNames.Add(game.GetName());
+                }
             }
 
             return JsonConvert.SerializeObject(gameNames);
