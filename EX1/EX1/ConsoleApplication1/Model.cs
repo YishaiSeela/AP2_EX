@@ -20,7 +20,7 @@ namespace Server
         private Maze correct;
         private List<Maze> mazes = new List<Maze>();
         //private List<Game> games = new List<Game>();
-        private Dictionary<string, Game> _games = new Dictionary<string, Game>();
+        private Dictionary<string, Game> games = new Dictionary<string, Game>();
 
 
         /*
@@ -46,8 +46,10 @@ namespace Server
          * AddGame - add game to list of games
          */
         public void AddGame( Game game)
-        {;
-            _games.Add(game.GetName(),game);
+        {
+                
+            games.Add(game.GetName(),game);
+
         }
         /*
         * PrintMaze - print the maze
@@ -106,7 +108,7 @@ namespace Server
         */
         public Dictionary<string, Game> GetGameList()
         {
-            return _games;
+            return games;
         }
 
         /*

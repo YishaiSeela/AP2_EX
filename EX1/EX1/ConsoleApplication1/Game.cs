@@ -65,5 +65,36 @@ namespace Server
             return hasTwoPlayers;
         }
 
+
+        /*
+         * getFirstPleyer - get second player
+         */
+        public TcpClient getFirstPleyer()
+        {
+            return player1;
+        }
+
+
+        /*
+         * getSecondPleyer - get second player
+         */
+        public TcpClient getSecondPleyer(TcpClient client)
+        {
+            if (client == player1)
+            {
+                return player2;
+            } 
+            else if (client == player2)
+            {
+                return player1;
+            }
+            else
+            {
+                Console.WriteLine("this client is not in the game");
+                return client;
+
+            }
+        }
+
     }
 }

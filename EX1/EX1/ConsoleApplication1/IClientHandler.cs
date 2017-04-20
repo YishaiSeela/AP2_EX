@@ -9,7 +9,7 @@ namespace Server
 {
     public interface IClientHandler
     {
-        void HandleClient(TcpClient client);
+        void HandleClient(TcpClient client ,Controller control);
     }
 
 }

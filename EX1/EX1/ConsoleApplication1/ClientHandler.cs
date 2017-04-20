@@ -12,23 +12,24 @@ namespace Server
     class ClientHandler : IClientHandler
     {
 
-        public void HandleClient(TcpClient client)
+        public void HandleClient(TcpClient client, Controller controller)
         {
-            Controller controller = new Controller();
+           
             new Task(() =>
             {
                 using (NetworkStream stream = client.GetStream())
-                using (StreamReader reader = new StreamReader(stream))
-                using (StreamWriter writer = new StreamWriter(stream))
+                using (BinaryReader reader= new BinaryReader(stream))
+                using (BinaryWriter writer = new BinaryWriter(stream))
                 {
                     while (true)
                     {
-                        string commandLine = reader.ReadLine();
+                        string commandLine = reader.ReadString();
                         Console.WriteLine("Got command: {0}", commandLine);
                         string result = controller.ExecuteCommand(commandLine, client);
                         writer.Write(result);
                         writer.Flush();
                     }
+                               
                 }
                 client.Close();
             }).Start();

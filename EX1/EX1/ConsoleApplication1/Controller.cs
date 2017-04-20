@@ -1,4 +1,5 @@
-﻿using Server;
+﻿
+using Server;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +10,7 @@ using System.Threading.Tasks;
 namespace Server
 {
 
-    class Controller
+    public class Controller
     {
         private Dictionary<string, ICommand> commands;
         private IModel model;
@@ -22,8 +23,7 @@ namespace Server
             commands.Add("start", new StartGameCommand(model));
             commands.Add("list",new ShowListCommand(model));
             commands.Add("join", new JoinGameCommand(model));
-
-
+            commands.Add("play", new PlayCommand(model));
 
             // more commands...
         }

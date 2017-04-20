@@ -53,6 +53,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Program.cs" />
+    <Compile Include="PlayCommand.cs" />
     <Compile Include="Dictionary.cs" />
     <Compile Include="Game.cs" />
     <Compile Include="JoinGameCommand.cs" />
@@ -67,7 +69,7 @@
     <Compile Include="Controller.cs" />
     <Compile Include="GenerateMazeCommand.cs" />
     <Compile Include="ICommand.cs" />
-    <Compile Include="ServerProgram.cs" />
+    <Compile Include="Server.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

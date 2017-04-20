@@ -31,19 +31,16 @@ namespace Server
         {
             List<String> gameNames = new List<String>();
             //JObject mazeObj = new JObject();
-            foreach (KeyValuePair<string, Game> game in model.GetGameList())
-
+            foreach (string name in model.GetGameList().Keys)        
             {
-                gameNames.Add(game.ToString());
+                gameNames.Add(name);
             }
 
             return JsonConvert.SerializeObject(gameNames);
-            //return mazeObj.ToString();
         }
 
-
         /*
-        * Execute - solve maze
+        * Execute - show list of available games
         */
         public string Execute(string[] args, TcpClient client)
         {
