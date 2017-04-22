@@ -14,6 +14,8 @@ namespace Server
     class PlayCommand : ICommand
     {
         private IModel model;
+        private NetworkStream stream;
+        private BinaryWriter writer;
 
         /*
         * Constructor
@@ -44,25 +46,22 @@ namespace Server
             TcpClient otherPlayer = null;
             foreach (Game game in model.GetGameList().Values)
             {
-                Console.WriteLine(game.GetName()+game.HasTwoPlayers());
-
                 if ((game.getFirstPleyer() == client) || (game.getSecondPleyer() == client))
                 {
                     currentGame = game;
                     otherPlayer = currentGame.getOtherPleyer(client);
                 }
             }
-            /*
-            using (NetworkStream stream = otherPlayer.GetStream())
-            using (BinaryReader reader = new BinaryReader(stream))
-            using (BinaryWriter writer = new BinaryWriter(stream))
+
+            stream = otherPlayer.GetStream();
+            writer = new BinaryWriter(stream);
             {
                 string result = ToJSON(currentGame.GetName(), args[0]);
                 writer.Write(result);
                 writer.Flush();
-            }*/
+            }
             
-            return ToJSON(currentGame.GetName(), args[0]); // ToJSON(model.GetGameList());
+            return " ";
         }
     }
 }

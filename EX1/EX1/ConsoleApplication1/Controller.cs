@@ -24,6 +24,8 @@ namespace Server
             commands.Add("list",new ShowListCommand(model));
             commands.Add("join", new JoinGameCommand(model));
             commands.Add("play", new PlayCommand(model));
+            commands.Add("close", new CloseCommand(model));
+
 
             // more commands...
         }

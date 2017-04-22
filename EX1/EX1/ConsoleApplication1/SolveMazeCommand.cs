@@ -38,26 +38,26 @@ namespace Server
                 //compare every state in solution with its previous
                 for (int i = 1; i < solution.count(); i++)
                 {
-                    //if previous state coloumn coordinate is lower by 1 than current state - moved left(0)
+                    //if previous state coloumn coordinate is lower by 1 than current state - moved right(1)
                     
                     if (msa.GetPositionFromState(solution.getState(i - 1)).Col -
                         msa.GetPositionFromState(solution.getState(i)).Col == 1)
                     {
                         sol = "1" +sol;
                     }
-                    //if previous state coloumn coordinate is higher by 1 than current state - moved right(1)
+                    //if previous state coloumn coordinate is higher by 1 than current state - moved left(0)
                     else if (msa.GetPositionFromState(solution.getState(i)).Col -
                         msa.GetPositionFromState(solution.getState(i - 1)).Col == 1)
                     {
                         sol = "0" + sol;
                     }
-                    //if previous state row coordinate is lower by 1 than current state - moved up(2)
+                    //if previous state row coordinate is lower by 1 than current state - moved down(3)
                     else if (msa.GetPositionFromState(solution.getState(i - 1)).Row -
                         msa.GetPositionFromState(solution.getState(i)).Row == 1)
                     {
                         sol = "3" + sol;
                     }
-                    //if previous state row coordinate is higher by 1 than current state - moved down(3)
+                    //if previous state row coordinate is higher by 1 than current state - moved up(2)
                     else if (msa.GetPositionFromState(solution.getState(i)).Row -
                         msa.GetPositionFromState(solution.getState(i - 1)).Row == 1)
                     {
@@ -97,6 +97,7 @@ namespace Server
             int nodesEvaluated = model.GetEvaluatedNodes();
             //get string of solution
             string solutionStr = SolutionString(solution);
+
             //retuen JSON string
             return ToJSON(name, solutionStr, nodesEvaluated);
         }

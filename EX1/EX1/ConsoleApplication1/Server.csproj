@@ -53,6 +53,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CloseCommand.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="PlayCommand.cs" />
     <Compile Include="Dictionary.cs" />

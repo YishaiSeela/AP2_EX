@@ -23,11 +23,17 @@ namespace Server
                 {
                     while (true)
                     {
-                        string commandLine = reader.ReadString();
-                        Console.WriteLine("Got command: {0}", commandLine);
-                        string result = controller.ExecuteCommand(commandLine, client);
-                        writer.Write(result);
-                        writer.Flush();
+                        try {
+                            string commandLine = reader.ReadString();
+                            Console.WriteLine("Got command: {0}", commandLine);
+                            string result = controller.ExecuteCommand(commandLine, client);
+                            writer.Write(result);
+                            writer.Flush();
+                        }
+                        catch (Exception)
+                        {
+                            break;
+                        }
                     }
                                
                 }
