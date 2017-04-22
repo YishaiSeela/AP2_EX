@@ -4,14 +4,12 @@ using System.Net;
 using System.Text;
 using System.IO;
 using System.Threading.Tasks;
+using System.Collections.Generic;
 
 namespace Client
 {
     class ClientProgram
     {
-        //client socket
-        private static Socket ClientSocket = new Socket
-            (AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
 
         /*
          * Main
@@ -22,29 +20,54 @@ namespace Client
             IPEndPoint ep = new IPEndPoint(IPAddress.Parse("127.0.0.1"), 8000);
             TcpClient client = new TcpClient();
             client.Connect(ep);
-            Console.WriteLine("You are connected");
+            NetworkStream stream = client.GetStream();
+            BinaryReader reader = new BinaryReader(stream);
+            BinaryWriter writer = new BinaryWriter(stream);
 
-            using (NetworkStream stream = client.GetStream())
-            using (BinaryReader reader = new BinaryReader(stream))
-            using (BinaryWriter writer = new BinaryWriter(stream))
+            //list of commands for multiplayer
+            List<string> multiCommands = new List<string>();
+            multiCommands.Add("play");
+            multiCommands.Add("join");
+            multiCommands.Add("start");
+
+            Console.Write("Send a request: ");
+
+            //thread to recieve data from server
+            Task task = new Task(() =>
             {
                 while (true)
                 {
-                    // Send data to server
-                    Console.Write("Send a request: ");
-                    string request = Console.ReadLine();
-                    writer.Write(request);
-                    writer.Flush();
+                    try
+                    {
+                        // Get response from server
+                        string text = reader.ReadString();
+                        if (text == "close")
+                        {
+                            client.Close();
+                        }
+                        Console.WriteLine(text);
+                        Console.Write("Send a request: ");
+                    }
+                    catch (Exception) { break; }
 
-                    // Get result from server
-                    string text = reader.ReadString();
-                    Console.WriteLine(text);
+
                 }
-           }
-          
+            });
+            task.Start();
+
+            //thread to send data to server
+            while (true)
+            {
+                // Send data to server
+                string request = Console.ReadLine();
+                writer.Write(request);
+                writer.Flush();
+            }
         }
 
     }
 
-
 }
+
+
+
