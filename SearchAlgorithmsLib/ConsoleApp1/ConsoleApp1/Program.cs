@@ -7,60 +7,65 @@ using MazeGeneratorLib;
 using MazeLib;
 using SearchAlgorithmsLib;
 
-()
 namespace ConsoleApp1
 {
     class Program
     {
         //members
         public DFSMazeGenerator mazeGenerator;
-        public Solution<Task> sol;
+        public Solution<Position> solBFS;
+        public Solution<Position> solDFS;
 
         //create maze
-        public void createMaze(DFSMazeGenerator mazeGenerator)
+        public Maze createMaze(DFSMazeGenerator mazeGenerator)
         {
             this.mazeGenerator = new DFSMazeGenerator();
-            mazeGenerator.Generate(20, 20);
-            throw  new NotImplementedException();
+            return mazeGenerator.Generate(20, 20);
         }
         //print the maze
-        public void printMaze()
+        public void printMaze(Maze maze)
         {
-            System.Console.Write(mazeGenerator.ToString());
-            throw new NotImplementedException();
+            System.Console.Write(maze.ToString());
         }
-        public void solveBFS()
+        public void solveBFS(Maze maze)
         {
-            throw new NotImplementedException();
+            ISearchable<Position> mazeSearch = new MazeSerchableAdaptor(maze);
+            BFS<Position> bfs = new BFS<Position>();
+            solBFS = bfs.search(mazeSearch);
         }
 
-        public void solveDFS()
+        public void solveDFS(Maze maze)
         {
-            throw new NotImplementedException();
+            ISearchable<Position> mazeSearch = new MazeSerchableAdaptor(maze);
+            DFS<Position> dfs = new DFS<Position>();
+            solDFS = dfs.search(mazeSearch);
         }
-        public void printNumStatesBFS()
+        public void printNumStatesBFS(Maze maze)
         {
-            throw new NotImplementedException();
+            System.Console.Write(solBFS.count());
         }
-        public void printNumStatesDFS()
+        public void printNumStatesDFS(Maze maze)
         {
-            throw new NotImplementedException();
+            System.Console.Write(solDFS.count());
         }
 
         public void CompareSolvers() {
-            //create maze the size is: 20 on 20
-            createMaze(mazeGenerator);
+           
+            Maze maze = createMaze(mazeGenerator);
             //print the maze
-            printMaze();
+            printMaze(maze);
             //print solution BFS
-            solveBFS();
+            solveBFS(maze);
             //print solution DFS
-            solveDFS();
+            solveDFS(maze);
             //num of states in bfs
-            printNumStatesBFS();
+            printNumStatesBFS(maze);
         }
         static void Main(string[] args)
         {
+            Program p = new Program();
+            p.CompareSolvers();
+            
         }
     }
 }
