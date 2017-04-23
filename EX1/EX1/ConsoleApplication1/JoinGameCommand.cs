@@ -40,8 +40,7 @@ namespace Server
                 correctGame.SetPlayer(client);
 
                 Thread.Sleep(10);
-                //revome game from list
-                //model.RemoveGame(correctGame.GetName());
+
                 //retuen JSON string
                 return correctGame.GetMaze().ToJSON();
             }

@@ -16,6 +16,7 @@ namespace Server
         private IModel model;
         private NetworkStream stream;
         private BinaryWriter writer;
+        private List<string> validDirections = new List<string>();
 
         /*
         * Constructor
@@ -23,6 +24,15 @@ namespace Server
         public PlayCommand(IModel model)
         {
             this.model = model;
+            validDirections.Add("Right");
+            validDirections.Add("right");
+            validDirections.Add("Left");
+            validDirections.Add("left");
+            validDirections.Add("Up");
+            validDirections.Add("up");
+            validDirections.Add("Down");
+            validDirections.Add("down");
+
         }
 
         /*
@@ -44,24 +54,31 @@ namespace Server
         {
             Game currentGame = null;
             TcpClient otherPlayer = null;
-            foreach (Game game in model.GetGameList().Values)
+            if (!validDirections.Contains(args[0]))
             {
-                if ((game.getFirstPleyer() == client) || (game.getSecondPleyer() == client))
+                return "Invalid Direction";
+            }
+            else
+            {
+                foreach (Game game in model.GetGameList().Values)
                 {
-                    currentGame = game;
-                    otherPlayer = currentGame.getOtherPleyer(client);
+                    if ((game.getFirstPleyer() == client) || (game.getSecondPleyer() == client))
+                    {
+                        currentGame = game;
+                        otherPlayer = currentGame.getOtherPleyer(client);
+                    }
                 }
-            }
 
-            stream = otherPlayer.GetStream();
-            writer = new BinaryWriter(stream);
-            {
-                string result = ToJSON(currentGame.GetName(), args[0]);
-                writer.Write(result);
-                writer.Flush();
+                stream = otherPlayer.GetStream();
+                writer = new BinaryWriter(stream);
+                {
+                    string result = ToJSON(currentGame.GetName(), args[0]);
+                    writer.Write(result);
+                    writer.Flush();
+                }
+
+                return " ";
             }
-            
-            return " ";
         }
     }
 }

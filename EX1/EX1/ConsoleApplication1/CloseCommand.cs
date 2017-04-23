@@ -51,13 +51,15 @@ namespace Server
                 //revome game from list
                 model.RemoveGame(name);
 
-                //close
+                //close player 1
                 stream = player1.GetStream();
                 writer = new BinaryWriter(stream);
                 {
                     writer.Write("close");
                     writer.Flush();
                 }
+
+                //close player 2
                 stream = player2.GetStream();
                 writer = new BinaryWriter(stream);
                 {

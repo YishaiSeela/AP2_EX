@@ -71,6 +71,7 @@ namespace Server
         /*
         * ToJSON - get JSON string of maze solution
         */
+
         public string ToJSON(string name, string solutionStr, int nodesEvaluated)
         {
 
@@ -98,8 +99,18 @@ namespace Server
             //get string of solution
             string solutionStr = SolutionString(solution);
 
-            //retuen JSON string
-            return ToJSON(name, solutionStr, nodesEvaluated);
+            //find the maze to solve
+
+            if (model.doesMazeExist())
+            {
+
+                //retuen JSON string
+                return ToJSON(name, solutionStr, nodesEvaluated);
+            }
+            else
+            {
+                return "maze dosn't exist\n";
+            }
         }
     }
 }

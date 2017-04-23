@@ -22,6 +22,7 @@ namespace Server
                 using (BinaryWriter writer = new BinaryWriter(stream))
                 {
                     while (true)
+                    //while (controller.isMultiCommand())
                     {
                         try {
                             string commandLine = reader.ReadString();

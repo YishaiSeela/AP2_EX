@@ -19,9 +19,9 @@ namespace Server
         private Maze maze;
         private Maze correct;
         private List<Maze> mazes = new List<Maze>();
-        //private List<Game> games = new List<Game>();
         private Dictionary<string, Game> games = new Dictionary<string, Game>();
         private Dictionary<string, Game> playedGames = new Dictionary<string, Game>();
+        private Boolean mazeExists;
 
 
 
@@ -68,6 +68,10 @@ namespace Server
         */
         public Solution<Position> SolveMaze(string name, int algorithem)
         {
+
+            //initialize correct maze to null before lookin for maze to solve
+            correct = null;
+
             //find the maze to solve
             foreach (Maze maze in mazes)
             {
@@ -75,12 +79,14 @@ namespace Server
                 if (maze.Name == name)
                 {
                     correct = maze;
+                    mazeExists = true;
                 }
             }
             //if maze wasn't found - throw exception
             if (correct == null)
             {
                 Console.WriteLine("maze dosn't exist");
+                mazeExists = false;
                 return null;
             }
             else
@@ -113,6 +119,14 @@ namespace Server
         public Dictionary<string, Game> GetGameList()
         {
             return games;
+        }
+
+        /*
+        * GetMazeList - get list of mazes
+        */
+        public bool doesMazeExist()
+        {
+            return mazeExists;
         }
 
         /*

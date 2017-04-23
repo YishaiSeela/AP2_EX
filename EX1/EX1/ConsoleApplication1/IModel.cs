@@ -13,6 +13,8 @@ namespace Server
         void AddGame(Game game);
 
         Dictionary<string,Game> GetGameList();
+        bool doesMazeExist();
+
         int GetEvaluatedNodes();
         void RemoveGame(string removeGame);
     }
