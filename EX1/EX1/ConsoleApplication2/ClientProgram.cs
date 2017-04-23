@@ -25,10 +25,10 @@ namespace Client
             BinaryWriter writer = new BinaryWriter(stream);
 
             //list of commands for multiplayer
-            List<string> multiCommands = new List<string>();
-            multiCommands.Add("play");
-            multiCommands.Add("join");
-            multiCommands.Add("start");
+            //List<string> multiCommands = new List<string>();
+            //multiCommands.Add("play");
+            //multiCommands.Add("join");
+            //multiCommands.Add("start");
 
             Console.Write("Send a request: ");
 
@@ -48,7 +48,14 @@ namespace Client
                         Console.WriteLine(text);
                         Console.Write("Send a request: ");
                     }
-                    catch (Exception) { break; }
+                    catch (Exception)
+                    {
+                        client = new TcpClient();
+                        client.Connect(ep);
+                        stream = client.GetStream();
+                        reader = new BinaryReader(stream);
+                        writer = new BinaryWriter(stream);
+                    }
 
 
                 }
@@ -58,6 +65,7 @@ namespace Client
             //thread to send data to server
             while (true)
             {
+
                 // Send data to server
                 string request = Console.ReadLine();
                 writer.Write(request);
