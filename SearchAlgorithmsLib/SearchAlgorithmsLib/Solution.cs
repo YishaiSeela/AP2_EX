@@ -12,7 +12,7 @@ namespace SearchAlgorithmsLib
 
     public void addToSolution(State<T> state)
     {
-            solution.Add(state);
+            solutionList.Add(state);
         }
 
         public int count()

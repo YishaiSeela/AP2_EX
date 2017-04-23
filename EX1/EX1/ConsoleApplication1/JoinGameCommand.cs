@@ -6,17 +6,32 @@ using System.Net.Sockets;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+/// <summary>
+/// /// this class consist the command of join game
+/// </summary>
+
 
 namespace Server
 {
     class JoinGameCommand : ICommand
     {
+        /// <summary>
+        /// Store for the model property/summary>
+
+        /// </summary>
+
         private IModel model;
+        /// <summary>
+        /// Store The correct game
+        /// </summary>
+
         private Game correctGame;
 
-        /*
-        * constructor
-        */
+        /// <summary>
+        /// The class constructor/summary>
+        /// </summary>
+        /// <param name="model">The model.</param>
+
         public JoinGameCommand(IModel model)
         {
             this.model = model;
@@ -25,6 +40,12 @@ namespace Server
         /*
         * Execute - generate maze
         */
+        /// <summary>
+        /// Executes the specified arguments.
+        /// </summary>
+        /// <param name="args">The arguments.</param>
+        /// <param name="client">The client.</param>
+        /// <returns>getMaze/returns>
         public string Execute(string[] args, TcpClient client)
         {
             //initialize correct game

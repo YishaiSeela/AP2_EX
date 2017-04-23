@@ -8,23 +8,32 @@ using MazeLib;
 using System.Net;
 using System.Net.Sockets;
 
+/// <summary>
+/// this class contain the implementation of the command generete maze
+/// </summary>
 namespace Server
 {
     class GenerateMazeCommand : ICommand
     {
+        /// <summary>
+        ///  Store for the model property/summary>
+        /// </summary>
+
         private IModel model;
 
-        /*
-        * constructor
-        */
+        /// <summary>
+        /// The class constructor/summary>
         public GenerateMazeCommand(IModel model)
         {
             this.model = model;
         }
 
-        /*
-        * Execute - generate maze
-        */
+        /// <summary>
+        /// Executes the specified arguments-generate maze.
+        /// </summary>
+        /// <param name="args">The arguments.</param>
+        /// <param name="client">The client.</param>
+        /// <returns></returns>
         public string Execute(string[] args, TcpClient client)
         {
             //name of maze

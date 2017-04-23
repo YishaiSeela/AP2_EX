@@ -9,18 +9,36 @@ using System.Net.Sockets;
 using System.Text;
 using System.Threading.Tasks;
 
+
+/// /// <summary>
+/// this class consist the command of play 
+/// </summary>
+
 namespace Server 
 {
+
     class PlayCommand : ICommand
     {
+        /// <summary>
+        /// Store The model prpoerty</summary>
+
         private IModel model;
+        /// <summary>
+        /// Store The stream prpoerty</summary>
+        
         private NetworkStream stream;
+        /// <summary>
+        /// The writer </summary>
+
         private BinaryWriter writer;
+        /// <summary>
+        /// The valid directions/// </summary>
+
         private List<string> validDirections = new List<string>();
 
-        /*
-        * Constructor
-        */
+        /// <summary>
+        /// The constructor of the class
+        /// <summary>
         public PlayCommand(IModel model)
         {
             this.model = model;
@@ -35,9 +53,15 @@ namespace Server
 
         }
 
-        /*
-        * ToJSON - get JSON string of list of games
-        */
+
+  
+        /// <summary>
+        /// get JSON string of list of games
+        /// </summary>
+        /// <param name="name">The name.</param>
+        /// <param name="direction">The direction.</param>
+        /// <returns><mazeJob</returns>
+
         public string ToJSON(string name, string direction)
         {
             JObject mazeObj = new JObject();
@@ -50,6 +74,13 @@ namespace Server
         /*
         * Execute - play a move
         */
+        /// <summary>
+        /// Executes the specified arguments.
+        /// </summary>
+        /// <param name="args">The arguments.</param>
+        /// <param name="client">The client.</param>
+        /// <returns></returns>
+
         public string Execute(string[] args, TcpClient client)
         {
             Game currentGame = null;

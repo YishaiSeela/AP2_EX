@@ -56,7 +56,6 @@
     <Compile Include="CloseCommand.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="PlayCommand.cs" />
-    <Compile Include="Dictionary.cs" />
     <Compile Include="Game.cs" />
     <Compile Include="JoinGameCommand.cs" />
     <Compile Include="ShowListCommand.cs" />

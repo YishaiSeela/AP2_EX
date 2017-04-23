@@ -1,1 +1,13 @@
 C:\Users\Adi\Documents\Git\AP2_EX\SearchAlgorithmsLib\ConsoleApp1\ConsoleApp1\obj\Debug\ConsoleApp1.csprojResolveAssemblyReference.cache
+C:\Users\Adi\Documents\Git\AP2_EX\SearchAlgorithmsLib\ConsoleApp1\ConsoleApp1\bin\Debug\ConsoleApp1.exe.config
+C:\Users\Adi\Documents\Git\AP2_EX\SearchAlgorithmsLib\ConsoleApp1\ConsoleApp1\bin\Debug\ConsoleApp1.exe
+C:\Users\Adi\Documents\Git\AP2_EX\SearchAlgorithmsLib\ConsoleApp1\ConsoleApp1\bin\Debug\ConsoleApp1.pdb
+C:\Users\Adi\Documents\Git\AP2_EX\SearchAlgorithmsLib\ConsoleApp1\ConsoleApp1\bin\Debug\MazeGeneratorLib.dll
+C:\Users\Adi\Documents\Git\AP2_EX\SearchAlgorithmsLib\ConsoleApp1\ConsoleApp1\bin\Debug\MazeLib.dll
+C:\Users\Adi\Documents\Git\AP2_EX\SearchAlgorithmsLib\ConsoleApp1\ConsoleApp1\bin\Debug\SearchAlgorithmsLib.dll
+C:\Users\Adi\Documents\Git\AP2_EX\SearchAlgorithmsLib\ConsoleApp1\ConsoleApp1\bin\Debug\Priority Queue.dll
+C:\Users\Adi\Documents\Git\AP2_EX\SearchAlgorithmsLib\ConsoleApp1\ConsoleApp1\bin\Debug\SearchAlgorithmsLib.pdb
+C:\Users\Adi\Documents\Git\AP2_EX\SearchAlgorithmsLib\ConsoleApp1\ConsoleApp1\bin\Debug\Priority Queue.pdb
+C:\Users\Adi\Documents\Git\AP2_EX\SearchAlgorithmsLib\ConsoleApp1\ConsoleApp1\bin\Debug\Priority Queue.xml
+C:\Users\Adi\Documents\Git\AP2_EX\SearchAlgorithmsLib\ConsoleApp1\ConsoleApp1\obj\Debug\ConsoleApp1.exe
+C:\Users\Adi\Documents\Git\AP2_EX\SearchAlgorithmsLib\ConsoleApp1\ConsoleApp1\obj\Debug\ConsoleApp1.pdb

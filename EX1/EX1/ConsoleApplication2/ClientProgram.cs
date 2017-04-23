@@ -6,14 +6,22 @@ using System.IO;
 using System.Threading.Tasks;
 using System.Collections.Generic;
 
+
+
+/// <summary>
+/// this class consist the main of Client 
+/// </summary>
 namespace Client
 {
+  
     class ClientProgram
     {
 
-        /*
-         * Main
-         */
+        /// <summary>
+        /// Main of the specified arguments.
+        /// </summary>
+        /// <param name="args">The arguments.</param>
+
         static void Main(string[] args)
         {
             Console.Title = "Client";
@@ -23,13 +31,6 @@ namespace Client
             NetworkStream stream = client.GetStream();
             BinaryReader reader = new BinaryReader(stream);
             BinaryWriter writer = new BinaryWriter(stream);
-
-            //list of commands for multiplayer
-            //List<string> multiCommands = new List<string>();
-            //multiCommands.Add("play");
-            //multiCommands.Add("join");
-            //multiCommands.Add("start");
-
             Console.Write("Send a request: ");
 
             //thread to recieve data from server

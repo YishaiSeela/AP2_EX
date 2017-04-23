@@ -10,25 +10,42 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
+
+
+/// <summary>
+/// this class contain the implementation of the command close
+/// </summary>
 namespace Server
 {
     class CloseCommand : ICommand
     {
+        /// <summary>
+        /// Store for the model property/summary>
         private IModel model;
+        /// <summary>
+        /// Store for the stream property/summary>
+
         private NetworkStream stream;
+        /// <summary>
+        /// The writer </summary>
         private BinaryWriter writer;
 
-        /*
-        * Constructor
-        */
+        /// <summary>
+        /// The Constructor of the class</summary>
+        /// <param name="model">The model.</param>
+
         public CloseCommand(IModel model)
         {
             this.model = model;
         }
 
-        /*
-        * Execute - close connection
-        */
+        /// <summary>
+        /// Executes the specified arguments-close connection
+        /// </summary>
+        /// <param name="args">The arguments.</param>
+        /// <param name="client">The client.</param>
+        /// <returns> string/returns>
+
         public string Execute(string[] args, TcpClient client)
         {
 

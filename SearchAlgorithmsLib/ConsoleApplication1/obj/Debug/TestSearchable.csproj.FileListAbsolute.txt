@@ -9,3 +9,14 @@ C:\Users\Yishai\Documents\GIT\AP2_EX\SearchAlgorithmsLib\ConsoleApplication1\bin
 C:\Users\Yishai\Documents\GIT\AP2_EX\SearchAlgorithmsLib\ConsoleApplication1\obj\Debug\TestSearchable.csprojResolveAssemblyReference.cache
 C:\Users\Yishai\Documents\GIT\AP2_EX\SearchAlgorithmsLib\ConsoleApplication1\obj\Debug\ConsoleApplication1.exe
 C:\Users\Yishai\Documents\GIT\AP2_EX\SearchAlgorithmsLib\ConsoleApplication1\obj\Debug\ConsoleApplication1.pdb
+C:\Users\Adi\Documents\Git\AP2_EX\SearchAlgorithmsLib\ConsoleApplication1\bin\Debug\ConsoleApplication1.exe.config
+C:\Users\Adi\Documents\Git\AP2_EX\SearchAlgorithmsLib\ConsoleApplication1\bin\Debug\ConsoleApplication1.exe
+C:\Users\Adi\Documents\Git\AP2_EX\SearchAlgorithmsLib\ConsoleApplication1\bin\Debug\ConsoleApplication1.pdb
+C:\Users\Adi\Documents\Git\AP2_EX\SearchAlgorithmsLib\ConsoleApplication1\bin\Debug\SearchAlgorithmsLib.dll
+C:\Users\Adi\Documents\Git\AP2_EX\SearchAlgorithmsLib\ConsoleApplication1\bin\Debug\Priority Queue.dll
+C:\Users\Adi\Documents\Git\AP2_EX\SearchAlgorithmsLib\ConsoleApplication1\bin\Debug\SearchAlgorithmsLib.pdb
+C:\Users\Adi\Documents\Git\AP2_EX\SearchAlgorithmsLib\ConsoleApplication1\bin\Debug\Priority Queue.pdb
+C:\Users\Adi\Documents\Git\AP2_EX\SearchAlgorithmsLib\ConsoleApplication1\bin\Debug\Priority Queue.xml
+C:\Users\Adi\Documents\Git\AP2_EX\SearchAlgorithmsLib\ConsoleApplication1\obj\Debug\TestSearchable.csprojResolveAssemblyReference.cache
+C:\Users\Adi\Documents\Git\AP2_EX\SearchAlgorithmsLib\ConsoleApplication1\obj\Debug\ConsoleApplication1.exe
+C:\Users\Adi\Documents\Git\AP2_EX\SearchAlgorithmsLib\ConsoleApplication1\obj\Debug\ConsoleApplication1.pdb

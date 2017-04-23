@@ -7,24 +7,36 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
+/// <summary>
+/// this class contain the implementation of the command start game
+/// </summary>
 namespace Server
 {
     class StartGameCommand : ICommand
     {
+        
+       
         private IModel model;
+        /// <summary>
+        /// Store for the game property/summary>
         private Game game;
 
-        /*
-        * constructor
-        */
+
+        /// <summary>
+        /// The class constructor/summary>
+
         public StartGameCommand(IModel model)
         {
             this.model = model;
         }
+        /// <summary>
+        /// Executes the specified arguments-generate maze
+        /// </summary>
+        /// <param name="args">The arguments.</param>
+        /// <param name="client">The client.</param>
+        /// <returns>
+        /// Retuen Maze/returns>
 
-        /*
-        * Execute - generate maze
-        */
         public string Execute(string[] args, TcpClient client)
         {
             bool twoPlayers = false;

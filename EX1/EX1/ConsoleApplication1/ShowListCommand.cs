@@ -9,24 +9,42 @@ using System.Text;
 using System.Threading.Tasks;
 using MazeLib;
 
+/// <summary>
+///  this class contain the implementation of the command show list
+/// </summary>
 namespace Server
 {
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <seealso cref="Server.ICommand" />
+Command
     class ShowListCommand : ICommand
     {
+        /// <summary>
+        /// The model
+        /// </summary>
+
         private IModel model;
 
         /*
-        * Constructor
+        * 
         */
+        /// <summary>
+        /// The Constructor of the class</summary>
+
         public ShowListCommand(IModel model)
         {
             this.model = model;
         }
 
 
-        /*
-        * ToJSON - get JSON string of list of games
-        */
+        /// <summary>
+        ///  get JSON string of list of games
+        /// </summary>
+        /// <param name="games">The games.</param>
+        /// <returns><JsonConvert/returns>
+
         public string ToJSON(Dictionary<string,Game> games)
         {
             List<String> gameNames = new List<String>();
@@ -42,9 +60,13 @@ namespace Server
             return JsonConvert.SerializeObject(gameNames);
         }
 
-        /*
-        * Execute - show list of available games
-        */
+      
+        /// <summary>
+        /// Executes the specified arguments,show list of available games.
+        /// </summary>
+        /// <param name="args">The arguments.</param>
+        /// <param name="client">The client.</param>
+
         public string Execute(string[] args, TcpClient client)
         {
 

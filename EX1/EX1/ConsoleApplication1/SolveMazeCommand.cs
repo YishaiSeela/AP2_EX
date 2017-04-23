@@ -11,24 +11,36 @@ using SearchAlgorithmsLib;
 using Server;
 using Newtonsoft.Json.Linq;
 
+/// <summary>
+/// this class contain the implementation of the command solve maze
+/// </summary>
 namespace Server
 {
     class SolveMazeCommand : ICommand
     {
+        /// <summary>
+        /// Store for the model property/summary>
         private IModel model;
+        /// <summary>
+        /// Store for the msa property/summary> 
         private MazeSearchableAdaptor msa = new MazeSearchableAdaptor();
-        
-        /*
-        * Constructor
-        */
+
+        /// <summary>
+        /// The class constructor/summary>
         public SolveMazeCommand(IModel model)
         {
             this.model = model;
         }
 
         /*
-        * SolutionString - get solutioon of movements in maze
+        *  - 
         */
+        /// <summary>
+        /// SolutionString get solutioon of movements in maze
+        /// </summary>
+        /// <param name="solution">The solution.</param>
+        /// <returns> sole/returns>
+
         public string SolutionString(Solution<Position> solution)
         {
             string sol = "";
@@ -68,9 +80,14 @@ namespace Server
             return sol;
         }
 
-        /*
-        * ToJSON - get JSON string of maze solution
-        */
+
+        /// <summary>
+        /// To the json. get JSON string of maze solution
+        /// </summary>
+        /// <param name="name">The name.</param>
+        /// <param name="solutionStr">The solution string.</param>
+        /// <param name="nodesEvaluated">The nodes evaluated.</param>
+        /// <returns></returns>
 
         public string ToJSON(string name, string solutionStr, int nodesEvaluated)
         {
@@ -83,9 +100,13 @@ namespace Server
             return mazeObj.ToString();
         }
 
-        /*
-        * Execute - solve maze
-        */
+  
+        /// <summary>
+        /// Executes the specified arguments, solve maze.
+        /// </summary>
+        /// <param name="args">The arguments.</param>
+        /// <param name="client">The client.</param>
+
         public string Execute(string[] args, TcpClient client)
         {
             //name of maze
