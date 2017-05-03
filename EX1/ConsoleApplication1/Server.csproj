@@ -44,6 +44,7 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -53,16 +54,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CloseCommand.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="PlayCommand.cs" />
+    <Compile Include="Game.cs" />
+    <Compile Include="JoinGameCommand.cs" />
+    <Compile Include="ShowListCommand.cs" />
+    <Compile Include="StartGameCommand.cs" />
     <Compile Include="ClientHandler.cs" />
     <Compile Include="IModel.cs" />
     <Compile Include="IClientHandler.cs" />
-    <Compile Include="MazeSearchableAdaptor.cs" />
     <Compile Include="Model.cs" />
     <Compile Include="SolveMazeCommand.cs" />
     <Compile Include="Controller.cs" />
     <Compile Include="GenerateMazeCommand.cs" />
     <Compile Include="ICommand.cs" />
-    <Compile Include="Program.cs" />
+    <Compile Include="Server.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -75,6 +82,10 @@
     <ProjectReference Include="..\..\..\..\GIT\AP2_EX\SearchAlgorithmsLib\SearchAlgorithmsLib\SearchAlgorithmsLib.csproj">
       <Project>{59d3f5bc-d3c9-472b-bc0e-0e7a600c7efb}</Project>
       <Name>SearchAlgorithmsLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\adaptor\Adaptor.csproj">
+      <Project>{55afa8a8-d744-479e-9f68-cf7d89abfc0e}</Project>
+      <Name>Adaptor</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

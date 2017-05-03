@@ -8,76 +8,109 @@ using MazeLib;
 using System.Net;
 using System.Net.Sockets;
 using SearchAlgorithmsLib;
-using ConsoleApp1;
+using Server;
 using Newtonsoft.Json.Linq;
 
-namespace ConsoleApplication1
+/// <summary>
+/// namespace server
+/// </summary>
+namespace Server
 {
+    /// <summary>
+    /// this class contain the implementation of the command solve maze
+    /// </summary>
     class SolveMazeCommand : ICommand
     {
+        /// <summary>
+        /// Store for the model property
+        /// </summary>
         private IModel model;
-        private MazeSearchableAdaptor msa;
-        
-        /*
-        * Constructor
-        */
+        /// <summary>
+        /// Store for the msa property
+        /// </summary> 
+        private MazeSearchableAdaptor msa = new MazeSearchableAdaptor();
+
+        /// <summary>
+        /// The class constructor
+        /// </summary>
         public SolveMazeCommand(IModel model)
         {
             this.model = model;
         }
 
-        /*
-        * SolutionString - get solutioon of movements in maze
-        */
+        /// <summary>
+        /// SolutionString get solutioon of movements in maze
+        /// </summary>
+        /// <param name="solution">The solution.</param>
+        /// <returns> string of solution </returns>
+
         public string SolutionString(Solution<Position> solution)
         {
             string sol = "";
-            //compare every state in solution with its previous
-            for (int i = 1; i < solution.count(); i++)
+
+            if (solution != null)
             {
-                //if previous state coloumn coordinate is lower by 1 than current state - moved left(0)
-                if (msa.GetPositionFromState(solution.getState(i-1)).Col - 
-                    msa.GetPositionFromState(solution.getState(i)).Col == 1)
+                //compare every state in solution with its previous
+                for (int i = 1; i < solution.count(); i++)
                 {
-                    sol += "0";
-                }
-                //if previous state coloumn coordinate is higher by 1 than current state - moved right(1)
-                else if (msa.GetPositionFromState(solution.getState(i)).Col - 
-                    msa.GetPositionFromState(solution.getState(i-1)).Col == 1)
-                {
-                    sol += "1";
-                }
-                //if previous state row coordinate is lower by 1 than current state - moved up(2)
-                else if (msa.GetPositionFromState(solution.getState(i-1)).Row - 
-                    msa.GetPositionFromState(solution.getState(i)).Row == 1)
-                {
-                    sol += "2";
-                }
-                //if previous state row coordinate is higher by 1 than current state - moved down(3)
-                else if (msa.GetPositionFromState(solution.getState(i)).Row - 
-                    msa.GetPositionFromState(solution.getState(i - 1)).Row == 1)
-                {
-                    sol += "3";
+                    //if previous state coloumn coordinate is lower by 1 than current state - moved right(1)
+
+                    if (msa.GetPositionFromState(solution.getState(i - 1)).Col -
+                        msa.GetPositionFromState(solution.getState(i)).Col == 1)
+                    {
+                        sol = "1" + sol;
+                    }
+                    //if previous state coloumn coordinate is higher by 1 than current state - moved left(0)
+                    else if (msa.GetPositionFromState(solution.getState(i)).Col -
+                        msa.GetPositionFromState(solution.getState(i - 1)).Col == 1)
+                    {
+                        sol = "0" + sol;
+                    }
+                    //if previous state row coordinate is lower by 1 than current state - moved down(3)
+                    else if (msa.GetPositionFromState(solution.getState(i - 1)).Row -
+                        msa.GetPositionFromState(solution.getState(i)).Row == 1)
+                    {
+                        sol = "3" + sol;
+                    }
+                    //if previous state row coordinate is higher by 1 than current state - moved up(2)
+                    else if (msa.GetPositionFromState(solution.getState(i)).Row -
+                        msa.GetPositionFromState(solution.getState(i - 1)).Row == 1)
+                    {
+                        sol = "2" + sol;
+                    }
                 }
             }
             return sol;
         }
 
-        /*
-        * ToJSON - get JSON string of maze solution
-        */
+
+        /// <summary>
+        /// To the json. get JSON string of maze solution
+        /// </summary>
+        /// <param name="name">The name.</param>
+        /// <param name="solutionStr">The solution string.</param>
+        /// <param name="nodesEvaluated">The nodes evaluated.</param>
+        /// <returns> 
+        /// json string of solution of maze
+        /// </returns>
+
         public string ToJSON(string name, string solutionStr, int nodesEvaluated)
         {
-            dynamic obj = new JObject();
-            obj.name = name;
-            obj.solution = solutionStr;
-            obj.NodesEvaluated = nodesEvaluated;
-            return obj;
+
+            JObject mazeObj = new JObject();
+            mazeObj["Name"] = name;
+            mazeObj["Solution"] = solutionStr;
+            mazeObj["NodesEvaluated"] = nodesEvaluated;
+
+            return mazeObj.ToString();
         }
 
-        /*
-        * Execute - solve maze
-        */
+
+        /// <summary>
+        /// Executes the specified arguments, solve maze.
+        /// </summary>
+        /// <param name="args">The arguments.</param>
+        /// <param name="client">The client.</param>
         public string Execute(string[] args, TcpClient client)
         {
             //name of maze
@@ -90,8 +123,19 @@ namespace ConsoleApplication1
             int nodesEvaluated = model.GetEvaluatedNodes();
             //get string of solution
             string solutionStr = SolutionString(solution);
-            //retuen JSON string
-            return ToJSON(name, solutionStr, nodesEvaluated);
+
+            //find the maze to solve
+
+            if (model.doesMazeExist())
+            {
+
+                //retuen JSON string
+                return ToJSON(name, solutionStr, nodesEvaluated);
+            }
+            else //return error message
+            {
+                return "maze dosn't exist\n";
+            }
         }
     }
 }

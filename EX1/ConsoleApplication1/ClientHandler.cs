@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Server;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -6,28 +7,54 @@ using System.Net.Sockets;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ConsoleApplication1
+/// <summary>
+/// namespace server
+/// </summary>
+namespace Server
 {
+    /// <summary>
+    /// this clas implement the IClientHandler
+    /// </summary>
     class ClientHandler : IClientHandler
     {
 
-        public void HandleClient(TcpClient client)
+        /// <summary>
+        /// Handles the client.
+        /// </summary>
+        /// <param name="client">The client.</param>
+        /// <param name="controller">The controller.</param>
+        public void HandleClient(TcpClient client, Controller controller)
         {
-            Controller controller = new Controller();
+            //new task to handle client
             new Task(() =>
             {
                 using (NetworkStream stream = client.GetStream())
-                using (StreamReader reader = new StreamReader(stream))
-                using (StreamWriter writer = new StreamWriter(stream))
+                using (BinaryReader reader = new BinaryReader(stream))
+                using (BinaryWriter writer = new BinaryWriter(stream))
                 {
                     while (true)
                     {
-                        string commandLine = reader.ReadLine();
-                        Console.WriteLine("Got command: {0}", commandLine);
-                        string result = controller.ExecuteCommand(commandLine, client);
-                        writer.Write(result);
-                        writer.Flush();
+                        try
+                        {
+                            //execute given command
+                            string commandLine = reader.ReadString();
+                            Console.WriteLine("Got command: {0}", commandLine);
+                            string result = controller.ExecuteCommand(commandLine, client);
+                            writer.Write(result);
+                            writer.Flush();
+                            //close connection if it's not a multiplayer command
+                            if (!controller.isMultiCommand())
+                            {
+                                break;
+                            }
+                        }
+                        //close connection if an exception occurred
+                        catch (Exception)
+                        {
+                            break;
+                        }
                     }
+
                 }
                 client.Close();
             }).Start();

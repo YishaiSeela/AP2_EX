@@ -5,10 +5,25 @@ using System.Net.Sockets;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ConsoleApplication1
+/// <summary>
+/// namespace server
+/// </summary>
+
+namespace Server
 {
+    /// <summary>
+    /// client handler
+    /// </summary>
+
     public interface IClientHandler
     {
-        void HandleClient(TcpClient client);
-    }
+        /// <summary>
+        /// Handles the client.
+        /// </summary>
+        /// <param name="client">The client.</param>
+        /// <param name="control">The control.</param>
+
+        void HandleClient(TcpClient client, Controller control);
+    }
+
 }

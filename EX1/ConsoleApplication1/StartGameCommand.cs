@@ -1,12 +1,11 @@
-﻿using System;
+﻿using MazeLib;
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using MazeGeneratorLib;
-using MazeLib;
-using System.Net;
 using System.Net.Sockets;
+using System.Text;
+using System.Threading;
+using System.Threading.Tasks;
 
 /// <summary>
 /// namespace server
@@ -14,36 +13,38 @@ using System.Net.Sockets;
 namespace Server
 {
     /// <summary>
-    /// this class contain the implementation of the command generete maze
+    /// this class contain the implementation of the command start game
     /// </summary>
-    /// <seealso cref="Server.ICommand" />
-    class GenerateMazeCommand : ICommand
+    class StartGameCommand : ICommand
     {
-        /// <summary>
-        /// Store for the model property/summary&gt;
-        /// </summary>
+
 
         private IModel model;
+        /// <summary>
+        /// Store for the game property
+        /// </summary>
+        private Game game;
+
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="GenerateMazeCommand"/> class.
+        /// The class constructor<
         /// </summary>
-        /// <param name="model">The model.</param>
-        public GenerateMazeCommand(IModel model)
+
+        public StartGameCommand(IModel model)
         {
             this.model = model;
         }
-
         /// <summary>
-        /// Executes the specified arguments-generate maze.
+        /// Executes the specified arguments-generate maze
         /// </summary>
         /// <param name="args">The arguments.</param>
         /// <param name="client">The client.</param>
         /// <returns>
-        /// json string of maze
-        /// </returns>
+        /// Retuen Maze/returns>
+
         public string Execute(string[] args, TcpClient client)
         {
+            bool twoPlayers = false;
             //name of maze
             string name = args[0];
             //size of maze (rows and columns)
@@ -51,12 +52,24 @@ namespace Server
             int cols = int.Parse(args[2]);
             //generate maze
             Maze maze = model.GenerateMaze(name, rows, cols);
-            //add maze to list
-            model.AddMaze(maze);
-            //set name of maze
+            //set maze name
             maze.Name = name;
+            //add maze to list of games
+            game = new Game(maze, client);
+            model.AddGame(game);
+            while (!twoPlayers)
+            {
+                if (model.GetGameList().ContainsKey(name))
+                {
+                    twoPlayers = model.GetGameList()[name].HasTwoPlayers();
+                }
+                Thread.Sleep(10);
+
+            }
+
             //retuen JSON string
             return maze.ToJSON();
         }
+
     }
 }
