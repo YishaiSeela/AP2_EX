@@ -1,0 +1,14 @@
+C:\Users\Yishai\Documents\Visual Studio 2015\Projects\EX1\ConsoleApplication2\bin\Release\ConsoleApplication2.exe.config
+C:\Users\Yishai\Documents\Visual Studio 2015\Projects\EX1\ConsoleApplication2\bin\Release\ConsoleApplication2.exe
+C:\Users\Yishai\Documents\Visual Studio 2015\Projects\EX1\ConsoleApplication2\bin\Release\ConsoleApplication2.pdb
+C:\Users\Yishai\Documents\Visual Studio 2015\Projects\EX1\ConsoleApplication2\obj\Release\ConsoleApplication2.exe
+C:\Users\Yishai\Documents\Visual Studio 2015\Projects\EX1\ConsoleApplication2\obj\Release\ConsoleApplication2.pdb
+C:\Users\Yishai\Documents\Visual Studio 2015\Projects\EX1\ConsoleApplication2\bin\Release\adaptor.dll
+C:\Users\Yishai\Documents\Visual Studio 2015\Projects\EX1\ConsoleApplication2\bin\Release\SearchAlgorithmsLib.dll
+C:\Users\Yishai\Documents\Visual Studio 2015\Projects\EX1\ConsoleApplication2\bin\Release\MazeLib.dll
+C:\Users\Yishai\Documents\Visual Studio 2015\Projects\EX1\ConsoleApplication2\bin\Release\Priority Queue.dll
+C:\Users\Yishai\Documents\Visual Studio 2015\Projects\EX1\ConsoleApplication2\bin\Release\adaptor.pdb
+C:\Users\Yishai\Documents\Visual Studio 2015\Projects\EX1\ConsoleApplication2\bin\Release\SearchAlgorithmsLib.pdb
+C:\Users\Yishai\Documents\Visual Studio 2015\Projects\EX1\ConsoleApplication2\bin\Release\Priority Queue.pdb
+C:\Users\Yishai\Documents\Visual Studio 2015\Projects\EX1\ConsoleApplication2\bin\Release\Priority Queue.xml
+C:\Users\Yishai\Documents\Visual Studio 2015\Projects\EX1\ConsoleApplication2\obj\Release\Client.csprojResolveAssemblyReference.cache
