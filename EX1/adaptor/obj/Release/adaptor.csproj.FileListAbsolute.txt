@@ -1,0 +1,12 @@
+C:\Users\Yishai\Documents\Visual Studio 2015\Projects\EX1\adaptor\bin\Release\adaptor.dll
+C:\Users\Yishai\Documents\Visual Studio 2015\Projects\EX1\adaptor\bin\Release\adaptor.pdb
+C:\Users\Yishai\Documents\Visual Studio 2015\Projects\EX1\adaptor\bin\Release\MazeGeneratorLib.dll
+C:\Users\Yishai\Documents\Visual Studio 2015\Projects\EX1\adaptor\bin\Release\MazeLib.dll
+C:\Users\Yishai\Documents\Visual Studio 2015\Projects\EX1\adaptor\bin\Release\SearchAlgorithmsLib.dll
+C:\Users\Yishai\Documents\Visual Studio 2015\Projects\EX1\adaptor\bin\Release\Priority Queue.dll
+C:\Users\Yishai\Documents\Visual Studio 2015\Projects\EX1\adaptor\bin\Release\SearchAlgorithmsLib.pdb
+C:\Users\Yishai\Documents\Visual Studio 2015\Projects\EX1\adaptor\bin\Release\Priority Queue.pdb
+C:\Users\Yishai\Documents\Visual Studio 2015\Projects\EX1\adaptor\bin\Release\Priority Queue.xml
+C:\Users\Yishai\Documents\Visual Studio 2015\Projects\EX1\adaptor\obj\Release\adaptor.csprojResolveAssemblyReference.cache
+C:\Users\Yishai\Documents\Visual Studio 2015\Projects\EX1\adaptor\obj\Release\adaptor.dll
+C:\Users\Yishai\Documents\Visual Studio 2015\Projects\EX1\adaptor\obj\Release\adaptor.pdb
