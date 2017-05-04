@@ -8,9 +8,9 @@
         Title="MainWindow" Height="350" Width="525">
     <Grid Margin="0,3,0,-3">
         <TextBox x:Name="textBox" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
-        <Button X:Name= "b1" Content="Single Player" 
-        <TextBox x:Name="t1" ... />
-        <Button x:Name="b1" Content="Single Player" Click="b1_Click" .../>
-        <Button x:Name="b2" Content="Multi Player".../>
+        <Button x:Name="b1" Content="Single Player" Click="b1_Click">
+        <Button x:Name="b2" Content="Multi Player" Click="b2_Click">
+        <Button x:Name="b3" Content="Settings" Click="b3_Click">
     </Grid>
 </Window>
+            
