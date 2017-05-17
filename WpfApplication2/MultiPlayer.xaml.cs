@@ -10,35 +10,18 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace WpfApplication2
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for MultiPlayer.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class MultiPlayer : Window
     {
-        public MainWindow()
+        public MultiPlayer()
         {
             InitializeComponent();
-        }
-
-        private void button1_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void button2_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void button3_Click(object sender, RoutedEventArgs e)
-        {
-            new Settings().Show();
-            this.Close();
         }
     }
 }
