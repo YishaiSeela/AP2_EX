@@ -27,12 +27,14 @@ namespace WpfApplication2
 
         private void button1_Click(object sender, RoutedEventArgs e)
         {
-
+            new SinglePlayer().Show();
+            this.Close();
         }
 
         private void button2_Click(object sender, RoutedEventArgs e)
         {
-
+            new MultiPlayer().Show();
+            this.Close();
         }
 
         private void button3_Click(object sender, RoutedEventArgs e)

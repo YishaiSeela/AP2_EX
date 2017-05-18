@@ -23,5 +23,15 @@ namespace WpfApplication2
         {
             InitializeComponent();
         }
+
+        private void btnJoin_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnStart_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
