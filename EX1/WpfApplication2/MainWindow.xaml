@@ -1,0 +1,21 @@
+﻿<Window x:Class="WpfApplication2.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApplication2"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="350" Width="525">
+    <Window.Background>
+        <ImageBrush/>
+    </Window.Background>
+    <Grid x:Name="___No_Name_">
+        <Grid.Background>
+            <ImageBrush ImageSource="C:\Users\Yishai\Desktop\maze.jpg"/>
+        </Grid.Background>
+        <Button x:Name="button1" Content="Single Player" Width="95" Height="45" Margin="211,40,211,234" Click="button1_Click"/>
+        <Button x:Name="button2" Content="Multi Player" Width="95" Height="45" Margin="211,105,211,169" Click="button2_Click"/>
+        <Button x:Name="button3" Content="Settings" Width="95" Height="45" Margin="211,170,211,104" Click="button3_Click"/>
+
+    </Grid>
+</Window>
