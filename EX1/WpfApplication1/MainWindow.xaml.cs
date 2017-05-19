@@ -10,23 +10,19 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace WpfApplication2
+namespace WpfApplication1
 {
     /// <summary>
-    /// Interaction logic for SinglePlayer.xaml
+    /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class SinglePlayer : Window
+    public partial class MainWindow : Window
     {
-        public SinglePlayer()
+        public MainWindow()
         {
-            InitializeComponent();
-        }
-
-        private void btnStart_Click(object sender, RoutedEventArgs e)
-        {
-            //StartGame(MazeName,MazeRows,MazeCols);
+            InitializeComp
         }
     }
 }

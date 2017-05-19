@@ -7,7 +7,7 @@ using MazeGeneratorLib;
 using SearchAlgorithmsLib;
 using MazeLib;
 
-namespace ConsoleApp1
+namespace Server
 {
 
     public class MazeSearchableAdaptor : ISearchable<Position>

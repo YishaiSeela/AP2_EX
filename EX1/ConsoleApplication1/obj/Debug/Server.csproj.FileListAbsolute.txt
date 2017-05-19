@@ -28,3 +28,5 @@ C:\Users\Yishai\Documents\Visual Studio 2015\Projects\EX1\ConsoleApplication1\bi
 C:\Users\Yishai\Documents\Visual Studio 2015\Projects\EX1\ConsoleApplication1\bin\Debug\Priority Queue.pdb
 C:\Users\Yishai\Documents\Visual Studio 2015\Projects\EX1\ConsoleApplication1\bin\Debug\Priority Queue.xml
 C:\Users\Yishai\Documents\Visual Studio 2015\Projects\EX1\ConsoleApplication1\obj\Debug\Server.csprojResolveAssemblyReference.cache
+C:\Users\Yishai\Documents\Visual Studio 2015\Projects\EX1\ConsoleApplication1\bin\Debug\adaptor.dll
+C:\Users\Yishai\Documents\Visual Studio 2015\Projects\EX1\ConsoleApplication1\bin\Debug\adaptor.pdb

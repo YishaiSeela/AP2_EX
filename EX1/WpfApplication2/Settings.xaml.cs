@@ -19,14 +19,19 @@ namespace WpfApplication2
     /// </summary>
     public partial class Settings : Window
     {
+        private SettingsViewModel vm;
         public Settings()
         {
             InitializeComponent();
+            //vm = new SettingsViewModel();
+            //this.DataContext = vm;
         }
 
         private void btnSave_Click(object sender, RoutedEventArgs e)
         {
-
+            //vm.SaveSettings();
+            new MainWindow().Show();
+            this.Close();
         }
 
         private void btnCancel_Click(object sender, RoutedEventArgs e)
@@ -35,6 +40,9 @@ namespace WpfApplication2
             this.Close();
         }
 
+        private void txtRows_TextChanged(object sender, TextChangedEventArgs e)
+        {
 
+        }
     }
 }

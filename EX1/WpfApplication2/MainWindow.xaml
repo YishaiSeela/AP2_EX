@@ -11,7 +11,7 @@
     </Window.Background>
     <Grid x:Name="___No_Name_">
         <Grid.Background>
-            <ImageBrush ImageSource="C:\Users\Yishai\Desktop\maze.jpg"/>
+            <ImageBrush ImageSource="C:\Users\Adi\Documents\MAZE\maze"/>
         </Grid.Background>
         <Button x:Name="button1" Content="Single Player" Width="95" Height="45" Margin="211,40,211,234" Click="button1_Click"/>
         <Button x:Name="button2" Content="Multi Player" Width="95" Height="45" Margin="211,105,211,169" Click="button2_Click"/>

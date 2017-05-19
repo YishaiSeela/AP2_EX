@@ -8,37 +8,35 @@
         Title="Settings" Height="300" Width="300">
     <Grid TextBlock.FontSize="14">
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-
-            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="Auto"/>
-            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="Auto" MinWidth="116"/>
+            <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <TextBlock Padding="3" Margin="3">ip address:</TextBlock>
-        <TextBox x:Name="txtIP" Grid.Column="2" Padding="3" Margin="3"></TextBox>
-        <TextBlock Grid.Row="1" Padding="3" Margin="3">port:</TextBlock>
-        <TextBox x:Name="txtPort" Grid.Row="1" Grid.Column="2" Padding="3"
-Margin="3"></TextBox>
-        <TextBlock Grid.Row="2" Padding="3" Margin="3">rows:</TextBlock>
-        <TextBox x:Name="txtRows" Grid.Row="2" Grid.Column="2" Padding="3"
-Margin="3"></TextBox>
-        <TextBlock Grid.Row="3" Padding="3" Margin="3">columns:</TextBlock>
-        <TextBox x:Name="txtCols" Grid.Row="3" Grid.Column="1" Padding="3"
-Margin="3"></TextBox>
-        <TextBlock Grid.Row="4" Padding="3" Margin="3">algorithm:</TextBlock>
-        <ComboBox x:Name="txtAlgo" Grid.Row="4" Grid.Column="1" Padding="3"
-Margin="3"></ComboBox>
-
+        <TextBlock>Server IP:</TextBlock>
+        <TextBox x:Name="txtIP" Grid.Column="1" Text="{Binding ServerIP}"></TextBox>
+        <TextBlock Grid.Row="1">Server Port:</TextBlock>
+        <TextBox x:Name="txtPort" Grid.Row="1" Grid.Column="1" Text="{Binding ServerPort}"></TextBox>
+        <TextBlock Grid.Row="2">Maze rows:</TextBlock>
+        <TextBox x:Name="txtRows" Grid.Row="2" Grid.Column="1" Text="{Binding MazeRows}" TextChanged="txtRows_TextChanged"></TextBox>
+        <TextBlock Grid.Row="3">Maze columns:</TextBlock>
+        <TextBox x:Name="txtCols" Grid.Row="3" Grid.Column="1" Text="{Binding MazeCols}"></TextBox>
+        <TextBlock Grid.Row="4">Search algorithm:</TextBlock>
+        <ComboBox x:Name="cboSearchAlgo" Grid.Row="4" Grid.Column="1" HorizontalAlignment="Left"
+SelectedIndex="{Binding SearchAlgorithm}" IsEditable="False" Width="64">
+            <ComboBoxItem>BFS</ComboBoxItem>
+            <ComboBoxItem>DFS</ComboBoxItem>
+        </ComboBox>
         <Button x:Name="btnSave" Grid.Row="5" HorizontalAlignment="Center"
-Grid.ColumnSpan="2" Click="btnSave_Click" Margin="3" Padding="5">Save Settings</Button>
-        <Button x:Name="btnCancel" Grid.Row="6" HorizontalAlignment="Center" Click="btnCancel_Click" Margin="3" 
-                Padding="5" Grid.ColumnSpan="2" Width="69">Cancel</Button>
+Grid.ColumnSpan="2" Click="btnSave_Click" Margin="99,3" Padding="5" Width="94">Save Settings</Button>
+        <Button x:Name="btnCancel" Grid.Row="6" HorizontalAlignment="Center" Click="btnCancel_Click" Margin="112,3" 
+                Padding="5" Grid.ColumnSpan="2" Width="68">Cancel</Button>
     </Grid>
 </Window>

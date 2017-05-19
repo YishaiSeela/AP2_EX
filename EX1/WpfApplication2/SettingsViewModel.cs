@@ -13,6 +13,7 @@ namespace WpfApplication2
         {
             this.model = model;
         }
+
         public string ServerIP
         {
             get { return model.ServerIP; }
